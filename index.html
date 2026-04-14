@@ -61,32 +61,13 @@ body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--dark);o
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit}
 
-/* ===== THEME TOGGLE (iOS style) ===== */
-.theme-toggle{
-  position:relative;width:52px;height:28px;cursor:pointer;flex-shrink:0;
-}
+/* ===== THEME TOGGLE ===== */
+.theme-toggle{position:relative;width:52px;height:28px;cursor:pointer;flex-shrink:0}
 .theme-toggle input{position:absolute;opacity:0;width:0;height:0}
-.toggle-track{
-  position:absolute;inset:0;border-radius:999px;
-  background:linear-gradient(135deg,#3a7bd5,#c9843a);
-  transition:all .45s cubic-bezier(.34,1.56,.64,1);
-  overflow:hidden;
-}
+.toggle-track{position:absolute;inset:0;border-radius:999px;transition:all .45s cubic-bezier(.34,1.56,.64,1);overflow:hidden}
 [data-theme="light"] .toggle-track{background:linear-gradient(135deg,#87ceeb,#ffd700)}
 [data-theme="dark"] .toggle-track{background:linear-gradient(135deg,#1a237e,#283593)}
-.toggle-thumb{
-  position:absolute;top:3px;left:3px;width:22px;height:22px;
-  border-radius:50%;background:#fff;
-  transition:all .45s cubic-bezier(.34,1.56,.64,1);
-  display:flex;align-items:center;justify-content:center;
-  font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.25);
-  z-index:2;
-}
-.toggle-track-icons{
-  position:absolute;inset:0;display:flex;
-  align-items:center;justify-content:space-between;
-  padding:0 6px;font-size:10px;pointer-events:none;
-}
+.toggle-thumb{position:absolute;top:3px;left:3px;width:22px;height:22px;border-radius:50%;background:#fff;transition:all .45s cubic-bezier(.34,1.56,.64,1);display:flex;align-items:center;justify-content:center;font-size:13px;box-shadow:0 2px 8px rgba(0,0,0,.25);z-index:2}
 [data-theme="dark"] .toggle-thumb{transform:translateX(24px)}
 [data-theme="light"] .toggle-thumb::after{content:'☀️'}
 [data-theme="dark"] .toggle-thumb::after{content:'🌙'}
@@ -115,30 +96,46 @@ button{cursor:pointer;font-family:inherit}
 .inp{width:100%;padding:.8rem 1.1rem;border:2px solid var(--input-border);border-radius:14px;font-family:'Outfit',sans-serif;font-size:.95rem;color:var(--input-text);background:var(--input-bg);outline:none;transition:border-color .2s,background .35s,color .35s;margin-bottom:.9rem}
 .inp:focus{border-color:var(--gold)}
 .inp::placeholder{color:var(--muted);opacity:.7}
-/* Fix date input in dark mode */
-input[type="date"].inp{color-scheme:light}
 [data-theme="dark"] input[type="date"].inp{color-scheme:dark;color:var(--input-text)}
 
 .btn-login{width:100%;padding:.9rem;border-radius:999px;border:none;background:var(--brown);color:#fff;font-weight:700;font-size:1rem;transition:all .25s;margin-bottom:.9rem;cursor:pointer}
 .btn-login:hover{background:var(--gold);transform:translateY(-2px)}
 .login-skip{font-size:.8rem;color:var(--muted);background:none;border:none;text-decoration:underline;transition:color .2s;cursor:pointer}
 .login-skip:hover{color:var(--gold)}
-.login-err{color:var(--rose);font-size:.8rem;margin-bottom:.6rem;display:none}
+.login-err{color:var(--rose);font-size:.8rem;margin-bottom:.6rem;display:none;padding:.5rem .8rem;background:rgba(212,96,90,.08);border-radius:8px;border:1px solid rgba(212,96,90,.2)}
 .fb-loading{font-size:.82rem;color:var(--muted);text-align:center;padding:.5rem}
 
-/* OTP styles */
-.otp-section{display:none}
-.otp-row{display:flex;gap:.5rem;justify-content:center;margin-bottom:.9rem}
-.otp-digit{width:44px;height:50px;border:2px solid var(--input-border);border-radius:12px;text-align:center;font-size:1.3rem;font-weight:700;color:var(--input-text);background:var(--input-bg);outline:none;transition:border-color .2s;font-family:'Outfit',sans-serif}
-.otp-digit:focus{border-color:var(--gold)}
-.otp-hint{font-size:.78rem;color:var(--muted);margin-bottom:.9rem}
-.otp-resend{font-size:.78rem;color:var(--gold);background:none;border:none;cursor:pointer;text-decoration:underline}
-.step-indicator{display:flex;align-items:center;justify-content:center;gap:.4rem;margin-bottom:1.2rem}
-.step-dot{width:8px;height:8px;border-radius:50%;background:var(--blush);transition:background .3s}
-.step-dot.active{background:var(--gold)}
-.phone-row{display:flex;gap:.5rem;margin-bottom:.9rem}
-.phone-prefix{padding:.8rem .9rem;border:2px solid var(--input-border);border-radius:14px;background:var(--input-bg);color:var(--input-text);font-size:.95rem;font-weight:700;min-width:60px;text-align:center}
-.phone-row .inp{margin-bottom:0;flex:1}
+/* Google button */
+.btn-google{width:100%;padding:.85rem;border-radius:999px;border:2px solid var(--input-border);background:var(--card-bg);color:var(--dark);font-weight:700;font-size:.93rem;display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:.8rem;transition:all .25s;cursor:pointer}
+.btn-google:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 15px var(--shadow)}
+.btn-google svg{width:20px;height:20px;flex-shrink:0}
+.divider-or{display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem;color:var(--muted);font-size:.78rem;font-weight:600}
+.divider-or::before,.divider-or::after{content:'';flex:1;height:1px;background:var(--input-border)}
+
+/* Auth tabs */
+.auth-tabs{display:flex;gap:.4rem;margin-bottom:1.3rem;background:var(--warm);border-radius:12px;padding:.3rem}
+.auth-tab{flex:1;padding:.5rem;border:none;border-radius:9px;font-size:.82rem;font-weight:700;background:transparent;color:var(--muted);transition:all .2s;cursor:pointer}
+.auth-tab.active{background:var(--card-bg);color:var(--brown);box-shadow:0 2px 8px var(--shadow)}
+
+/* Password strength */
+.pw-strength{height:3px;border-radius:2px;margin:-6px 0 10px;transition:all .3s;background:var(--blush)}
+.pw-strength.weak{background:#e53e3e;width:33%}
+.pw-strength.medium{background:#ed8936;width:66%}
+.pw-strength.strong{background:#38a169;width:100%}
+
+/* Rate limit warning */
+.rate-warning{display:none;background:rgba(212,96,90,.1);border:1px solid rgba(212,96,90,.3);border-radius:10px;padding:.6rem .9rem;font-size:.78rem;color:var(--rose);margin-bottom:.7rem;text-align:left}
+.rate-warning.show{display:block}
+
+/* Lockout overlay */
+.lockout-msg{display:none;text-align:center;padding:1rem}
+.lockout-msg.show{display:block}
+.lockout-icon{font-size:2.5rem;margin-bottom:.5rem}
+.lockout-timer{font-size:1.4rem;font-weight:700;color:var(--rose);font-family:'Cormorant Garamond',serif;margin:.3rem 0}
+
+/* Verified badge */
+.verified-badge{display:inline-flex;align-items:center;gap:.3rem;background:#e8f5e9;color:#2e7d32;font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;margin-left:.4rem}
+[data-theme="dark"] .verified-badge{background:#1b4332;color:#69db7c}
 
 /* ===== NAV ===== */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:.85rem 2rem;background:var(--nav-bg);backdrop-filter:blur(14px);border-bottom:1px solid var(--border-subtle);transition:background .35s}
@@ -221,10 +218,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:cen
 /* ===== ORDERS SECTION ===== */
 .orders-sec{padding:5rem 2rem;background:var(--cream);transition:background .35s}
 .order-form-wrap{max-width:560px;margin:2.5rem auto 0;background:var(--card-bg);border-radius:24px;padding:2rem;box-shadow:0 8px 30px var(--shadow);transition:background .35s}
-/* Fix date input alignment */
-.order-form-wrap .fg input[type="date"]{
-  display:block;width:100%;
-}
+.order-form-wrap .fg input[type="date"]{display:block;width:100%}
 
 /* ===== ABOUT ===== */
 .about-sec{background:var(--section-dark-bg);color:var(--cream);padding:5rem 2rem;text-align:center;transition:background .35s}
@@ -253,16 +247,12 @@ footer strong{color:var(--gold)}
 .fg label{display:block;font-size:.8rem;font-weight:700;color:var(--dark);margin-bottom:.35rem}
 .fg input,.fg select,.fg textarea{width:100%;padding:.75rem 1rem;border:2px solid var(--input-border);border-radius:12px;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--input-text);background:var(--input-bg);outline:none;transition:border-color .2s,background .35s,color .35s}
 .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
-/* Fix date in dark */
-.fg input[type="date"]{color-scheme:auto}
 [data-theme="dark"] .fg input[type="date"]{color-scheme:dark;color:var(--input-text)}
 .err{color:var(--rose);font-size:.8rem;display:none;margin-top:.3rem}
 .err.show{display:block}
 .btn-full{width:100%;margin-top:.4rem;padding:.88rem;border-radius:999px;font-size:.93rem;font-weight:700;border:none;cursor:pointer}
 .btn-br{background:var(--brown);color:#fff;transition:background .2s}.btn-br:hover{background:var(--gold)}
 .btn-rs{background:var(--rose);color:#fff}
-.upload-area{border:2px dashed var(--blush);border-radius:14px;padding:1.7rem;text-align:center;cursor:pointer;transition:all .3s;background:var(--input-bg)}
-.upload-area:hover{border-color:var(--gold);background:var(--warm)}
 .adm-item{display:flex;align-items:center;justify-content:space-between;background:var(--adm-item-bg);padding:.7rem 1rem;border-radius:10px;font-size:.82rem;gap:.5rem;transition:background .35s}
 .adm-item span{flex:1;color:var(--dark)}
 .adm-item .cpill{font-size:.68rem;color:var(--gold);font-weight:700;text-transform:uppercase}
@@ -295,24 +285,19 @@ hr.div{border:none;border-top:1px solid var(--border-subtle);margin:1.4rem 0}
 .my-order-card .mo-cake{font-weight:700;font-size:.9rem;color:var(--dark)}
 .my-order-card .mo-date{font-size:.75rem;color:var(--muted);margin-top:.2rem}
 
-/* Google button */
-.btn-google{width:100%;padding:.85rem;border-radius:999px;border:2px solid var(--input-border);background:var(--card-bg);color:var(--dark);font-weight:700;font-size:.93rem;display:flex;align-items:center;justify-content:center;gap:.6rem;margin-bottom:.8rem;transition:all .25s;cursor:pointer}
-.btn-google:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 4px 15px var(--shadow)}
-.btn-google svg{width:20px;height:20px;flex-shrink:0}
-.divider-or{display:flex;align-items:center;gap:.8rem;margin-bottom:.9rem;color:var(--muted);font-size:.78rem;font-weight:600}
-.divider-or::before,.divider-or::after{content:'';flex:1;height:1px;background:var(--input-border)}
-
-/* Verified badge */
-.verified-badge{display:inline-flex;align-items:center;gap:.3rem;background:#e8f5e9;color:#2e7d32;font-size:.72rem;font-weight:700;padding:.2rem .6rem;border-radius:999px;margin-left:.4rem}
-[data-theme="dark"] .verified-badge{background:#1b4332;color:#69db7c}
+/* Security badge on login */
+.security-note{display:flex;align-items:center;gap:.4rem;font-size:.72rem;color:var(--muted);justify-content:center;margin-top:.8rem;padding:.5rem;background:rgba(46,125,50,.07);border-radius:8px;border:1px solid rgba(46,125,50,.15)}
+.security-note .shield{color:#2e7d32}
 
 @keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(6deg)}}
 @keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 @keyframes spin{to{transform:rotate(360deg)}}
+@keyframes shake{0%,100%{transform:translateX(0)}20%,60%{transform:translateX(-6px)}40%,80%{transform:translateX(6px)}}
 
 .loader{width:20px;height:20px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite;display:inline-block;vertical-align:middle;margin-right:.4rem}
+.shake{animation:shake .4s ease}
 
 @media(max-width:640px){
   .nav-links{display:none}
@@ -343,23 +328,37 @@ hr.div{border:none;border-top:1px solid var(--border-subtle);margin:1.4rem 0}
 
 <!-- LOGIN GATE -->
 <div id="loginGate">
-  <div class="login-box">
+  <div class="login-box" id="loginBox">
     <div class="login-brand">Madhukunj <span>Bakers</span></div>
     <div class="login-sub">✦ Homemade Bakery · Mathura ✦</div>
     <span class="login-emoji">🎂</span>
 
-    <!-- Step indicators -->
-    <div class="step-indicator" id="stepIndicator">
-      <div class="step-dot active" id="dot1"></div>
-      <div class="step-dot" id="dot2"></div>
+    <!-- LOCKOUT screen -->
+    <div class="lockout-msg" id="lockoutMsg">
+      <div class="lockout-icon">🔒</div>
+      <h2 style="font-family:'Cormorant Garamond',serif;color:var(--dark)">Too Many Attempts</h2>
+      <p style="font-size:.85rem;color:var(--muted);margin:.4rem 0 .6rem">Account temporarily locked for your security.</p>
+      <div class="lockout-timer" id="lockoutTimer">5:00</div>
+      <p style="font-size:.75rem;color:var(--muted)">Try again after the timer expires.</p>
     </div>
 
-    <!-- STEP 1: Info + phone -->
-    <div id="step1">
+    <!-- MAIN login content -->
+    <div id="loginContent">
       <h2>Welcome!</h2>
-      <p>Enter your details to get started with ordering.</p>
+      <p>Sign in to order your favourite bakes.</p>
 
-      <!-- Google Sign-in -->
+      <!-- Auth tabs: Sign In / Register -->
+      <div class="auth-tabs" id="authTabs">
+        <button class="auth-tab active" id="tabSignin" onclick="switchTab('signin')">Sign In</button>
+        <button class="auth-tab" id="tabRegister" onclick="switchTab('register')">Register</button>
+      </div>
+
+      <!-- Rate limit warning -->
+      <div class="rate-warning" id="rateWarning">
+        ⚠️ <span id="rateMsg">Too many attempts. Please wait before trying again.</span>
+      </div>
+
+      <!-- Google Sign-in (always visible) -->
       <button class="btn-google" onclick="signInWithGoogle()" id="btnGoogle">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
@@ -370,36 +369,39 @@ hr.div{border:none;border-top:1px solid var(--border-subtle);margin:1.4rem 0}
         Continue with Google
       </button>
 
-      <div class="divider-or">or use phone number</div>
+      <div class="divider-or">or with email</div>
 
-      <input class="inp" type="text" id="gName" placeholder="Your Name" maxlength="40"/>
-      <div class="phone-row">
-        <div class="phone-prefix">+91</div>
-        <input class="inp" type="tel" id="gPhone" placeholder="10-digit mobile number" maxlength="10" oninput="this.value=this.value.replace(/\D/g,'')"/>
+      <!-- SIGN IN form -->
+      <div id="formSignin">
+        <input class="inp" type="email" id="siEmail" placeholder="Email address" autocomplete="email"/>
+        <div style="position:relative">
+          <input class="inp" type="password" id="siPass" placeholder="Password" autocomplete="current-password" oninput="checkPassStrength(this,'siStrength')" onkeydown="if(event.key==='Enter')doSignIn()"/>
+          <div class="pw-strength" id="siStrength" style="width:0"></div>
+        </div>
+        <p class="login-err" id="siErr"></p>
+        <button class="btn-login" id="btnSignIn" onclick="doSignIn()">Sign In 🔐</button>
+        <button class="login-skip" onclick="openForgotPassword()" style="display:block;margin:0 auto .5rem">Forgot password?</button>
       </div>
-      <input class="inp" type="email" id="gEmail" placeholder="Email (optional)"/>
-      <p class="login-err" id="loginErr">Please enter your name and a valid 10-digit phone number.</p>
-      <button class="btn-login" id="btnSendOtp" onclick="sendOtp()">Send OTP 📱</button>
+
+      <!-- REGISTER form -->
+      <div id="formRegister" style="display:none">
+        <input class="inp" type="text" id="regName" placeholder="Your full name" maxlength="40" autocomplete="name"/>
+        <input class="inp" type="email" id="regEmail" placeholder="Email address" autocomplete="email"/>
+        <div style="position:relative">
+          <input class="inp" type="password" id="regPass" placeholder="Create password (min 8 chars)" autocomplete="new-password" oninput="checkPassStrength(this,'regStrength')"/>
+          <div class="pw-strength" id="regStrength" style="width:0"></div>
+        </div>
+        <input class="inp" type="password" id="regPassConfirm" placeholder="Confirm password" autocomplete="new-password" onkeydown="if(event.key==='Enter')doRegister()"/>
+        <p class="login-err" id="regErr"></p>
+        <button class="btn-login" id="btnRegister" onclick="doRegister()">Create Account ✨</button>
+      </div>
+
+      <div class="security-note">
+        <span class="shield">🛡️</span>
+        <span>Secured by Firebase Authentication — your password is never stored by us.</span>
+      </div>
+      <br/>
       <button class="login-skip" onclick="skipLogin()">Skip — just browse</button>
-    </div>
-
-    <!-- STEP 2: OTP -->
-    <div id="step2" class="otp-section">
-      <h2>Verify OTP 🔐</h2>
-      <p id="otpSubtext">Enter the 6-digit code sent to your number.</p>
-      <div class="otp-row" id="otpRow">
-        <input class="otp-digit" maxlength="1" type="tel" oninput="otpNext(this,0)" onkeydown="otpBack(event,this,0)"/>
-        <input class="otp-digit" maxlength="1" type="tel" oninput="otpNext(this,1)" onkeydown="otpBack(event,this,1)"/>
-        <input class="otp-digit" maxlength="1" type="tel" oninput="otpNext(this,2)" onkeydown="otpBack(event,this,2)"/>
-        <input class="otp-digit" maxlength="1" type="tel" oninput="otpNext(this,3)" onkeydown="otpBack(event,this,3)"/>
-        <input class="otp-digit" maxlength="1" type="tel" oninput="otpNext(this,4)" onkeydown="otpBack(event,this,4)"/>
-        <input class="otp-digit" maxlength="1" type="tel" oninput="otpNext(this,5)" onkeydown="otpBack(event,this,5)"/>
-      </div>
-      <p class="otp-hint" id="otpHint">⏱ Code expires in <span id="otpTimer">60</span>s</p>
-      <p class="login-err" id="otpErr">Incorrect OTP. Please try again.</p>
-      <button class="btn-login" onclick="verifyOtp()">Verify & Enter 🎂</button>
-      <button class="otp-resend" id="btnResend" onclick="resendOtp()" style="display:none">Resend OTP</button>
-      <br/><button class="login-skip" onclick="goBackStep1()" style="margin-top:.7rem">← Change number</button>
     </div>
   </div>
 </div>
@@ -413,14 +415,12 @@ hr.div{border:none;border-top:1px solid var(--border-subtle);margin:1.4rem 0}
     <li><a href="#about">About</a></li>
   </ul>
   <div class="nav-right">
-    <!-- iOS-style theme toggle -->
     <label class="theme-toggle" title="Toggle dark/light mode">
       <input type="checkbox" id="themeCheck" onchange="toggleTheme(this.checked)"/>
       <div class="toggle-track">
         <div class="toggle-thumb" id="toggleThumb"></div>
       </div>
     </label>
-
     <div id="navUserPill" onclick="toggleDropdown()">
       <div id="navAvatar"></div>
       <span id="navName"></span>
@@ -533,7 +533,7 @@ hr.div{border:none;border-top:1px solid var(--border-subtle);margin:1.4rem 0}
       <p class="sub">Private access. Owner only.</p>
       <div class="fg"><label>Email</label><input type="email" id="aEmail" placeholder="your@email.com"/></div>
       <div class="fg"><label>Password</label><input type="password" id="aPass" placeholder="••••••••"/></div>
-      <p class="err" id="aErr">❌ Incorrect email or password.</p>
+      <p class="err" id="aErr">❌ Incorrect credentials.</p>
       <button class="btn-full btn-br" onclick="adminLogin()">Login</button>
     </div>
     <div id="adminPanel" style="display:none">
@@ -604,7 +604,7 @@ hr.div{border:none;border-top:1px solid var(--border-subtle);margin:1.4rem 0}
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, where, serverTimestamp, onSnapshot, getDoc, setDoc, increment } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, RecaptchaVerifier, signInWithPhoneNumber } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, updateProfile } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyA6yVeSfY1kKWaV_sZbrX6_zj5p3ZncS7M",
@@ -639,32 +639,32 @@ window._setDoc = setDoc;
 window._increment = increment;
 window._fbReady = true;
 window._signOut = () => signOut(auth);
-window._RecaptchaVerifier = RecaptchaVerifier;
-window._signInWithPhoneNumber = signInWithPhoneNumber;
+
+// Email/password auth
+window._createUserWithEmail = (email, pass) => createUserWithEmailAndPassword(auth, email, pass);
+window._signInWithEmail = (email, pass) => signInWithEmailAndPassword(auth, email, pass);
+window._sendPasswordReset = (email) => sendPasswordResetEmail(auth, email);
+window._updateProfile = (user, data) => updateProfile(user, data);
 
 // Google sign in
 window._signInWithGoogle = async () => {
-  try {
-    const result = await signInWithPopup(auth, googleProvider);
-    return result.user;
-  } catch(e) {
-    throw e;
-  }
+  const result = await signInWithPopup(auth, googleProvider);
+  return result.user;
 };
 
-// Auth state
+// Auth state listener — auto-restore session from Firebase
 onAuthStateChanged(auth, (user) => {
   window._firebaseUser = user;
   if (user && !window._manualLogin) {
-    // Auto-login from Firebase Auth
     const u = {
-      name: user.displayName || 'User',
+      name: user.displayName || user.email.split('@')[0] || 'User',
       email: user.email || '',
       phone: user.phoneNumber || '',
       photo: user.photoURL || '',
-      via: user.providerData[0]?.providerId === 'google.com' ? 'Google' : 'Phone',
+      via: user.providerData[0]?.providerId === 'google.com' ? 'Google' : 'Email',
       joinedAt: new Date().toISOString(),
-      uid: user.uid
+      uid: user.uid,
+      verified: user.emailVerified
     };
     window._currentUserData = u;
     showUser(u);
@@ -684,329 +684,435 @@ window.dispatchEvent(new Event('fbReady'));
 <script>
 /* ===== THEME ===== */
 function initTheme(){
-  const saved=localStorage.getItem('mk_theme')||'light';
-  document.documentElement.setAttribute('data-theme',saved);
-  document.getElementById('themeCheck').checked=(saved==='dark');
+  const saved = localStorage.getItem('mk_theme') || 'light';
+  document.documentElement.setAttribute('data-theme', saved);
+  document.getElementById('themeCheck').checked = (saved === 'dark');
 }
 function toggleTheme(isDark){
-  const theme=isDark?'dark':'light';
-  document.documentElement.setAttribute('data-theme',theme);
-  localStorage.setItem('mk_theme',theme);
+  const theme = isDark ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('mk_theme', theme);
 }
 initTheme();
 
 /* ===== COOKIES ===== */
-function setCk(n,v,d){const e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=`${n}=${encodeURIComponent(v)};expires=${e.toUTCString()};path=/;SameSite=Lax`}
+function setCk(n,v,d){const e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=`${n}=${encodeURIComponent(v)};expires=${e.toUTCString()};path=/;SameSite=Strict`}
 function getCk(n){const m=document.cookie.match(new RegExp('(?:^|; )'+n+'=([^;]*)'));return m?decodeURIComponent(m[1]):null}
 function acceptCookies(){setCk('mk_consent','yes',365);document.getElementById('cookieBanner').classList.remove('show')}
 function declineCookies(){setCk('mk_consent','no',30);document.getElementById('cookieBanner').classList.remove('show')}
 
 /* ===== TOAST ===== */
 function showToast(msg){
-  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');
-  setTimeout(()=>t.classList.remove('show'),3000);
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3200);
 }
 
-/* ===== SHA-256 ===== */
-async function sha256(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')}
-const AE='3e812011ecf284c709db44ca08958f9589fd92fe305598c355f4938482268fcb';
-const AP='e5509646b84f5671f65530221313f219ca2e90268722a24a57daba3d5e28d98c';
+/* ===== SHA-256 (admin auth) ===== */
+async function sha256(s){
+  const b = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(b)).map(x => x.toString(16).padStart(2,'0')).join('');
+}
+const AE = '3e812011ecf284c709db44ca08958f9589fd92fe305598c355f4938482268fcb';
+const AP = 'e5509646b84f5671f65530221313f219ca2e90268722a24a57daba3d5e28d98c';
 
-/* ===== OTP LOGIC ===== */
-let otpConfirmation = null;
-let otpTimerInterval = null;
-let otpResendTimer = 60;
-let pendingUser = null;
+/* ===========================
+   RATE LIMITING + LOCKOUT
+   =========================== */
+const RATE_KEY = 'mk_login_attempts';
+const LOCKOUT_KEY = 'mk_lockout_until';
+const MAX_ATTEMPTS = 5;
+const LOCKOUT_MS = 5 * 60 * 1000; // 5 minutes
 
-function otpNext(el, idx){
-  el.value = el.value.replace(/\D/g,'');
-  if(el.value.length === 1){
-    const digits = document.querySelectorAll('.otp-digit');
-    if(idx < 5) digits[idx+1].focus();
-    else verifyOtp(); // auto-verify on last digit
+let lockoutInterval = null;
+
+function getRateData(){
+  try { return JSON.parse(sessionStorage.getItem(RATE_KEY) || '{"count":0,"firstAt":0}'); }
+  catch { return {count:0, firstAt:0}; }
+}
+function setRateData(d){ sessionStorage.setItem(RATE_KEY, JSON.stringify(d)); }
+function getLockoutUntil(){ return parseInt(sessionStorage.getItem(LOCKOUT_KEY) || '0'); }
+function setLockoutUntil(ts){ sessionStorage.setItem(LOCKOUT_KEY, ts.toString()); }
+
+function isLockedOut(){
+  const until = getLockoutUntil();
+  return Date.now() < until;
+}
+
+function recordFailedAttempt(){
+  const now = Date.now();
+  let d = getRateData();
+  // Reset window if > 15 min old
+  if(now - d.firstAt > 15 * 60 * 1000){ d = {count:0, firstAt:now}; }
+  d.count++;
+  if(d.firstAt === 0) d.firstAt = now;
+  setRateData(d);
+
+  if(d.count >= MAX_ATTEMPTS){
+    const until = now + LOCKOUT_MS;
+    setLockoutUntil(until);
+    setRateData({count:0, firstAt:0});
+    showLockout(until);
+    return true; // locked out
+  }
+  const remaining = MAX_ATTEMPTS - d.count;
+  if(remaining <= 2){
+    const w = document.getElementById('rateWarning');
+    document.getElementById('rateMsg').textContent = `⚠️ ${remaining} attempt${remaining===1?'':'s'} remaining before lockout.`;
+    w.classList.add('show');
+  }
+  return false;
+}
+
+function clearFailedAttempts(){
+  sessionStorage.removeItem(RATE_KEY);
+  document.getElementById('rateWarning').classList.remove('show');
+}
+
+function showLockout(until){
+  document.getElementById('loginContent').style.display = 'none';
+  document.getElementById('lockoutMsg').classList.add('show');
+  updateLockoutTimer(until);
+  lockoutInterval = setInterval(() => {
+    if(!updateLockoutTimer(until)){
+      clearInterval(lockoutInterval);
+      document.getElementById('lockoutMsg').classList.remove('show');
+      document.getElementById('loginContent').style.display = 'block';
+      document.getElementById('rateWarning').classList.remove('show');
+    }
+  }, 1000);
+}
+
+function updateLockoutTimer(until){
+  const rem = Math.max(0, until - Date.now());
+  if(rem <= 0) return false;
+  const m = Math.floor(rem / 60000);
+  const s = Math.floor((rem % 60000) / 1000);
+  document.getElementById('lockoutTimer').textContent = `${m}:${s.toString().padStart(2,'0')}`;
+  return true;
+}
+
+function checkLockoutOnLoad(){
+  if(isLockedOut()){
+    showLockout(getLockoutUntil());
   }
 }
-function otpBack(e, el, idx){
-  if(e.key === 'Backspace' && !el.value){
-    const digits = document.querySelectorAll('.otp-digit');
-    if(idx > 0) digits[idx-1].focus();
-  }
-}
-function getOtpValue(){
-  return Array.from(document.querySelectorAll('.otp-digit')).map(d=>d.value).join('');
+
+/* ===========================
+   AUTH TABS
+   =========================== */
+function switchTab(tab){
+  const isSignin = (tab === 'signin');
+  document.getElementById('tabSignin').classList.toggle('active', isSignin);
+  document.getElementById('tabRegister').classList.toggle('active', !isSignin);
+  document.getElementById('formSignin').style.display = isSignin ? 'block' : 'none';
+  document.getElementById('formRegister').style.display = isSignin ? 'none' : 'block';
+  document.getElementById('siErr').style.display = 'none';
+  document.getElementById('regErr').style.display = 'none';
 }
 
-async function sendOtp(){
-  const name = document.getElementById('gName').value.trim();
-  const phone = document.getElementById('gPhone').value.trim().replace(/\D/g,'');
-  const email = document.getElementById('gEmail').value.trim();
-  const err = document.getElementById('loginErr');
+/* ===========================
+   PASSWORD STRENGTH
+   =========================== */
+function checkPassStrength(el, barId){
+  const v = el.value;
+  const bar = document.getElementById(barId);
+  if(!v){ bar.style.width = '0'; bar.className = 'pw-strength'; return; }
+  let score = 0;
+  if(v.length >= 8) score++;
+  if(/[A-Z]/.test(v)) score++;
+  if(/[0-9]/.test(v)) score++;
+  if(/[^A-Za-z0-9]/.test(v)) score++;
+  if(score <= 1){ bar.className = 'pw-strength weak'; }
+  else if(score <= 2){ bar.className = 'pw-strength medium'; }
+  else { bar.className = 'pw-strength strong'; }
+}
 
-  if(!name || phone.length !== 10){
-    err.style.display='block';
-    err.textContent='Please enter your name and a valid 10-digit phone number.';
+/* ===========================
+   SIGN IN (email + password)
+   =========================== */
+async function doSignIn(){
+  if(isLockedOut()){ showToast('Account temporarily locked. Wait for the timer.'); return; }
+
+  const email = document.getElementById('siEmail').value.trim();
+  const pass = document.getElementById('siPass').value;
+  const errEl = document.getElementById('siErr');
+  errEl.style.display = 'none';
+
+  if(!email || !pass){
+    errEl.textContent = '⚠️ Please enter your email and password.';
+    errEl.style.display = 'block';
     return;
   }
-  err.style.display='none';
 
-  pendingUser = {name, phone, email, via:'phone', joinedAt:new Date().toISOString()};
+  const btn = document.getElementById('btnSignIn');
+  btn.innerHTML = '<span class="loader"></span>Signing in…';
+  btn.disabled = true;
 
-  const btn = document.getElementById('btnSendOtp');
-  btn.innerHTML='<span class="loader"></span>Sending OTP…';
-  btn.disabled=true;
-
-  // Use Firebase Phone Auth if available
-  if(window._fbReady && window._auth){
-    try {
-      // Setup invisible recaptcha
-      if(!window._recaptchaVerifier){
-        window._recaptchaVerifier = new window._RecaptchaVerifier(window._auth, 'btnSendOtp', {
-          'size': 'invisible',
-          'callback': () => {}
-        });
-      }
-      otpConfirmation = await window._signInWithPhoneNumber(window._auth, '+91'+phone, window._recaptchaVerifier);
-      showStep2(phone);
-      btn.innerHTML='Send OTP 📱';
-      btn.disabled=false;
-      return;
-    } catch(e){
-      console.log('Firebase phone auth error:', e.code, e.message);
-      // Fallback to simulated OTP for testing
-    }
-  }
-
-  // Fallback: simulated OTP (for testing / when Firebase Phone not set up)
-  // Generate a 6-digit OTP and store it
-  const otp = Math.floor(100000 + Math.random() * 900000).toString();
-  window._simulatedOtp = otp;
-  console.log('🔐 OTP (test mode):', otp); // Only visible in console
-  showToast('OTP sent! Check console for test OTP.');
-  otpConfirmation = null; // signals we use simulated
-  showStep2(phone);
-  btn.innerHTML='Send OTP 📱';
-  btn.disabled=false;
-}
-
-function showStep2(phone){
-  document.getElementById('step1').style.display='none';
-  document.getElementById('step2').style.display='block';
-  document.getElementById('otpSubtext').textContent=`Enter the 6-digit code sent to +91 ${phone}.`;
-  document.getElementById('dot1').classList.remove('active');
-  document.getElementById('dot2').classList.add('active');
-  document.querySelector('.otp-digit').focus();
-  startOtpTimer();
-}
-
-function startOtpTimer(){
-  otpResendTimer = 60;
-  clearInterval(otpTimerInterval);
-  document.getElementById('btnResend').style.display='none';
-  document.getElementById('otpTimer').textContent=otpResendTimer;
-  document.getElementById('otpHint').style.display='block';
-  otpTimerInterval=setInterval(()=>{
-    otpResendTimer--;
-    document.getElementById('otpTimer').textContent=otpResendTimer;
-    if(otpResendTimer<=0){
-      clearInterval(otpTimerInterval);
-      document.getElementById('otpHint').style.display='none';
-      document.getElementById('btnResend').style.display='inline';
-    }
-  },1000);
-}
-
-async function verifyOtp(){
-  const code = getOtpValue();
-  if(code.length < 6){showToast('Enter all 6 digits');return}
-  const otpErr = document.getElementById('otpErr');
-  otpErr.style.display='none';
-
-  if(otpConfirmation){
-    // Real Firebase OTP
-    try{
-      const result = await otpConfirmation.confirm(code);
-      const fbUser = result.user;
-      pendingUser.uid = fbUser.uid;
-      pendingUser.verified = true;
-      completeLogin(pendingUser);
-    }catch(e){
-      otpErr.textContent = '❌ Incorrect OTP. Please try again.';
-      otpErr.style.display='block';
-      document.querySelectorAll('.otp-digit').forEach(d=>d.value='');
-      document.querySelector('.otp-digit').focus();
-    }
-  } else {
-    // Simulated OTP check
-    if(code === window._simulatedOtp){
-      pendingUser.verified = true;
-      completeLogin(pendingUser);
-    } else {
-      otpErr.textContent = '❌ Incorrect OTP. Please try again.';
-      otpErr.style.display='block';
-      document.querySelectorAll('.otp-digit').forEach(d=>d.value='');
-      document.querySelector('.otp-digit').focus();
-    }
-  }
-}
-
-async function resendOtp(){
-  document.querySelectorAll('.otp-digit').forEach(d=>d.value='');
-  if(window._recaptchaVerifier){
-    window._recaptchaVerifier.clear();
-    window._recaptchaVerifier = null;
-  }
-  if(otpConfirmation || window._fbReady){
-    goBackStep1();
-    setTimeout(()=>sendOtp(),200);
-  }
-}
-
-function goBackStep1(){
-  clearInterval(otpTimerInterval);
-  document.getElementById('step2').style.display='none';
-  document.getElementById('step1').style.display='block';
-  document.getElementById('dot2').classList.remove('active');
-  document.getElementById('dot1').classList.add('active');
-  document.querySelectorAll('.otp-digit').forEach(d=>d.value='');
-}
-
-/* ===== GOOGLE SIGN IN ===== */
-async function signInWithGoogle(){
-  const btn = document.getElementById('btnGoogle');
-  btn.innerHTML='<span class="loader" style="border-top-color:var(--gold)"></span> Signing in…';
-  btn.disabled=true;
-  try{
-    const user = await window._signInWithGoogle();
+  try {
+    const cred = await window._signInWithEmail(email, pass);
+    const user = cred.user;
+    clearFailedAttempts();
     const u = {
-      name: user.displayName||'User',
-      email: user.email||'',
-      phone: user.phoneNumber||'',
-      photo: user.photoURL||'',
-      via:'Google',
-      joinedAt:new Date().toISOString(),
-      uid: user.uid
+      name: user.displayName || email.split('@')[0],
+      email: user.email,
+      phone: user.phoneNumber || '',
+      photo: user.photoURL || '',
+      via: 'Email',
+      joinedAt: new Date().toISOString(),
+      uid: user.uid,
+      verified: user.emailVerified
     };
     completeLogin(u);
-  }catch(e){
-    showToast('Google sign-in failed. Try phone instead.');
-    btn.innerHTML='<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.47 2.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Continue with Google';
-    btn.disabled=false;
+  } catch(e){
+    const locked = recordFailedAttempt();
+    if(!locked){
+      let msg = '❌ Incorrect email or password.';
+      if(e.code === 'auth/user-not-found' || e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') msg = '❌ Incorrect email or password.';
+      else if(e.code === 'auth/too-many-requests') msg = '❌ Too many requests. Please wait a moment.';
+      else if(e.code === 'auth/user-disabled') msg = '❌ This account has been disabled.';
+      errEl.textContent = msg;
+      errEl.style.display = 'block';
+      // Shake animation
+      const box = document.getElementById('loginBox');
+      box.classList.add('shake');
+      setTimeout(() => box.classList.remove('shake'), 500);
+    }
+  } finally {
+    btn.innerHTML = 'Sign In 🔐';
+    btn.disabled = false;
   }
 }
 
+/* ===========================
+   REGISTER (email + password)
+   =========================== */
+async function doRegister(){
+  if(isLockedOut()){ showToast('Account temporarily locked. Wait for the timer.'); return; }
+
+  const name = document.getElementById('regName').value.trim();
+  const email = document.getElementById('regEmail').value.trim();
+  const pass = document.getElementById('regPass').value;
+  const confirm = document.getElementById('regPassConfirm').value;
+  const errEl = document.getElementById('regErr');
+  errEl.style.display = 'none';
+
+  if(!name){ errEl.textContent = '⚠️ Please enter your full name.'; errEl.style.display='block'; return; }
+  if(!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ errEl.textContent = '⚠️ Please enter a valid email.'; errEl.style.display='block'; return; }
+  if(pass.length < 8){ errEl.textContent = '⚠️ Password must be at least 8 characters.'; errEl.style.display='block'; return; }
+  if(pass !== confirm){ errEl.textContent = '⚠️ Passwords do not match.'; errEl.style.display='block'; return; }
+
+  const btn = document.getElementById('btnRegister');
+  btn.innerHTML = '<span class="loader"></span>Creating account…';
+  btn.disabled = true;
+
+  try {
+    const cred = await window._createUserWithEmail(email, pass);
+    await window._updateProfile(cred.user, { displayName: name });
+    const u = {
+      name,
+      email: cred.user.email,
+      phone: '',
+      photo: '',
+      via: 'Email',
+      joinedAt: new Date().toISOString(),
+      uid: cred.user.uid,
+      verified: false
+    };
+    completeLogin(u);
+  } catch(e){
+    let msg = '❌ Registration failed. Please try again.';
+    if(e.code === 'auth/email-already-in-use') msg = '❌ This email is already registered. Try signing in.';
+    else if(e.code === 'auth/invalid-email') msg = '❌ Invalid email address.';
+    else if(e.code === 'auth/weak-password') msg = '❌ Password is too weak. Use at least 8 characters.';
+    errEl.textContent = msg;
+    errEl.style.display = 'block';
+  } finally {
+    btn.innerHTML = 'Create Account ✨';
+    btn.disabled = false;
+  }
+}
+
+/* ===========================
+   FORGOT PASSWORD
+   =========================== */
+async function openForgotPassword(){
+  const email = document.getElementById('siEmail').value.trim();
+  const input = email || prompt('Enter your email address for password reset:');
+  if(!input) return;
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input)){ showToast('Please enter a valid email.'); return; }
+  try {
+    await window._sendPasswordReset(input);
+    showToast('📧 Password reset email sent! Check your inbox.');
+  } catch(e){
+    if(e.code === 'auth/user-not-found') showToast('No account found with that email.');
+    else showToast('Failed to send reset email. Try again.');
+  }
+}
+
+/* ===========================
+   GOOGLE SIGN IN
+   =========================== */
+async function signInWithGoogle(){
+  const btn = document.getElementById('btnGoogle');
+  btn.innerHTML = '<span class="loader" style="border-top-color:var(--gold)"></span> Signing in…';
+  btn.disabled = true;
+  try {
+    const user = await window._signInWithGoogle();
+    const u = {
+      name: user.displayName || 'User',
+      email: user.email || '',
+      phone: user.phoneNumber || '',
+      photo: user.photoURL || '',
+      via: 'Google',
+      joinedAt: new Date().toISOString(),
+      uid: user.uid,
+      verified: true
+    };
+    clearFailedAttempts();
+    completeLogin(u);
+  } catch(e){
+    if(e.code !== 'auth/popup-closed-by-user'){
+      showToast('Google sign-in failed. Try email instead.');
+    }
+  } finally {
+    btn.innerHTML = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;flex-shrink:0"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Continue with Google`;
+    btn.disabled = false;
+  }
+}
+
+/* ===========================
+   COMPLETE LOGIN
+   =========================== */
 function completeLogin(u){
-  clearInterval(otpTimerInterval);
-  setCk('mk_user',JSON.stringify(u),30);
   window._currentUserData = u;
   window._manualLogin = true;
+  // Store minimal session info (no password ever stored)
+  setCk('mk_user', JSON.stringify({
+    name: u.name,
+    email: u.email,
+    phone: u.phone,
+    photo: u.photo,
+    via: u.via,
+    uid: u.uid
+  }), 30);
   showUser(u);
   hideGate();
   saveUserToFirebase(u);
-  showToast('Welcome, '+u.name+'! 🎂');
+  showToast('Welcome, ' + u.name.split(' ')[0] + '! 🎂');
 }
 
-function skipLogin(){hideGate();showToast('Browsing as guest 👋')}
+function skipLogin(){ hideGate(); showToast('Browsing as guest 👋'); }
+
 function hideGate(){
-  const g=document.getElementById('loginGate');
-  g.style.opacity='0';g.style.transition='opacity .4s ease';
-  setTimeout(()=>g.style.display='none',420);
+  const g = document.getElementById('loginGate');
+  g.style.opacity = '0';
+  g.style.transition = 'opacity .4s ease';
+  setTimeout(() => g.style.display = 'none', 420);
 }
+
 function showUser(u){
-  const av=document.getElementById('navAvatar');
-  if(u.photo){
-    av.innerHTML=`<img src="${u.photo}" alt="${u.name}"/>`;
-  } else {
-    av.innerHTML=u.name.charAt(0).toUpperCase();
-  }
-  document.getElementById('navName').textContent=u.name.split(' ')[0];
-  document.getElementById('navUserPill').style.display='flex';
-  window._currentUserData=u;
+  const av = document.getElementById('navAvatar');
+  if(u.photo){ av.innerHTML = `<img src="${u.photo}" alt="${u.name}"/>`; }
+  else { av.textContent = u.name.charAt(0).toUpperCase(); }
+  document.getElementById('navName').textContent = u.name.split(' ')[0];
+  document.getElementById('navUserPill').style.display = 'flex';
+  window._currentUserData = u;
 }
 
 async function logoutUser(){
-  document.cookie='mk_user=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
-  window._currentUserData=null;
-  window._manualLogin=false;
+  document.cookie = 'mk_user=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;SameSite=Strict';
+  window._currentUserData = null;
+  window._manualLogin = false;
   if(window._signOut) await window._signOut();
-  document.getElementById('navUserPill').style.display='none';
+  document.getElementById('navUserPill').style.display = 'none';
   closeDropdown();
-  document.getElementById('loginGate').style.display='flex';
-  document.getElementById('loginGate').style.opacity='1';
-  document.getElementById('gName').value='';
-  document.getElementById('gPhone').value='';
-  document.getElementById('gEmail').value='';
-  goBackStep1();
+  // Reset login form
+  document.getElementById('siEmail').value = '';
+  document.getElementById('siPass').value = '';
+  document.getElementById('regName').value = '';
+  document.getElementById('regEmail').value = '';
+  document.getElementById('regPass').value = '';
+  document.getElementById('regPassConfirm').value = '';
+  document.getElementById('siErr').style.display = 'none';
+  document.getElementById('regErr').style.display = 'none';
+  switchTab('signin');
+  const gate = document.getElementById('loginGate');
+  gate.style.display = 'flex';
+  gate.style.opacity = '1';
   showToast('Logged out 👋');
 }
 
 async function saveUserToFirebase(u){
-  if(!window._fbReady)return;
-  try{
-    const statsRef=window._doc(window._db,'stats','global');
-    await window._setDoc(statsRef,{users:window._increment(1)},{merge:true});
-  }catch(e){}
+  if(!window._fbReady) return;
+  try {
+    const statsRef = window._doc(window._db, 'stats', 'global');
+    await window._setDoc(statsRef, {users: window._increment(1)}, {merge: true});
+  } catch(e){}
 }
 
 /* ===== DROPDOWN ===== */
 function toggleDropdown(){
-  const pill=document.getElementById('navUserPill');
-  const menu=document.getElementById('dropdownMenu');
-  if(menu.classList.contains('open')){closeDropdown()}else{pill.classList.add('open');menu.classList.add('open')}
+  const pill = document.getElementById('navUserPill');
+  const menu = document.getElementById('dropdownMenu');
+  if(menu.classList.contains('open')){ closeDropdown(); }
+  else { pill.classList.add('open'); menu.classList.add('open'); }
 }
 function closeDropdown(){
   document.getElementById('navUserPill').classList.remove('open');
   document.getElementById('dropdownMenu').classList.remove('open');
 }
-document.addEventListener('click',e=>{
-  const pill=document.getElementById('navUserPill');
-  if(pill&&!pill.contains(e.target))closeDropdown();
+document.addEventListener('click', e => {
+  const pill = document.getElementById('navUserPill');
+  if(pill && !pill.contains(e.target)) closeDropdown();
 });
 
 /* ===== PROFILE ===== */
 function openProfile(){
   closeDropdown();
-  const u=window._currentUserData||JSON.parse(getCk('mk_user')||'{}');
-  if(!u.name){showToast('Please log in first');return}
-  const av=document.getElementById('profileAvatar');
-  if(u.photo){av.innerHTML=`<img src="${u.photo}" alt="${u.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%"/>`}
-  else{av.textContent=u.name.charAt(0).toUpperCase()}
-  document.getElementById('profileName').innerHTML=`${u.name}${u.verified?'<span class="verified-badge">✓ Verified</span>':''}`;
-  document.getElementById('profilePhone').innerHTML=`📱 <strong>${u.phone||'—'}</strong>`;
-  document.getElementById('profileEmail').innerHTML=`📧 <strong>${u.email||'—'}</strong>`;
-  document.getElementById('profileVia').innerHTML=`🔗 Joined via <strong>${u.via||'phone'}</strong>`;
+  const u = window._currentUserData || JSON.parse(getCk('mk_user') || '{}');
+  if(!u.name){ showToast('Please log in first'); return; }
+  const av = document.getElementById('profileAvatar');
+  if(u.photo){ av.innerHTML = `<img src="${u.photo}" alt="${u.name}" style="width:100%;height:100%;object-fit:cover;border-radius:50%"/>`; }
+  else { av.textContent = u.name.charAt(0).toUpperCase(); }
+  document.getElementById('profileName').innerHTML = `${u.name}${u.verified ? '<span class="verified-badge">✓ Verified</span>' : ''}`;
+  document.getElementById('profilePhone').innerHTML = `📱 <strong>${u.phone || '—'}</strong>`;
+  document.getElementById('profileEmail').innerHTML = `📧 <strong>${u.email || '—'}</strong>`;
+  document.getElementById('profileVia').innerHTML = `🔗 Joined via <strong>${u.via || 'Email'}</strong>`;
   document.getElementById('profileOverlay').classList.add('open');
 }
-function closeProfile(){document.getElementById('profileOverlay').classList.remove('open')}
-document.getElementById('profileOverlay').addEventListener('click',function(e){if(e.target===this)closeProfile()});
+function closeProfile(){ document.getElementById('profileOverlay').classList.remove('open'); }
+document.getElementById('profileOverlay').addEventListener('click', function(e){ if(e.target === this) closeProfile(); });
 
 /* ===== MY ORDERS ===== */
 async function openMyOrders(){
   closeDropdown();
-  const u=window._currentUserData||JSON.parse(getCk('mk_user')||'{}');
-  if(!u.phone&&!u.email){showToast('Please log in to see your orders');return}
+  const u = window._currentUserData || JSON.parse(getCk('mk_user') || '{}');
+  if(!u.phone && !u.email){ showToast('Please log in to see your orders'); return; }
   document.getElementById('myOrdersOverlay').classList.add('open');
-  const list=document.getElementById('myOrdersList');
-  list.innerHTML='<div class="fb-loading">Loading your orders…</div>';
-  if(!window._fbReady){list.innerHTML='<p style="color:var(--muted);font-size:.85rem">Firebase not ready yet.</p>';return}
-  try{
+  const list = document.getElementById('myOrdersList');
+  list.innerHTML = '<div class="fb-loading">Loading your orders…</div>';
+  if(!window._fbReady){ list.innerHTML = '<p style="color:var(--muted);font-size:.85rem">Firebase not ready yet.</p>'; return; }
+  try {
     let q;
-    if(u.phone){
-      q=window._query(window._col(window._db,'orders'),window._where('phone','==',u.phone),window._orderBy('createdAt','desc'));
+    if(u.email){
+      q = window._query(window._col(window._db,'orders'), window._where('email','==',u.email), window._orderBy('createdAt','desc'));
     } else {
-      q=window._query(window._col(window._db,'orders'),window._where('email','==',u.email),window._orderBy('createdAt','desc'));
+      q = window._query(window._col(window._db,'orders'), window._where('phone','==',u.phone), window._orderBy('createdAt','desc'));
     }
-    const snap=await window._getDocs(q);
-    if(snap.empty){list.innerHTML='<p style="color:var(--muted);font-size:.85rem;text-align:center;padding:1rem">No orders yet 🎂</p>';return}
-    list.innerHTML='';
-    snap.forEach(d=>{
-      const o=d.data();
-      const div=document.createElement('div');div.className='my-order-card';
-      div.innerHTML=`<div class="mo-cake">🎂 ${o.cake}</div><div class="mo-date">Qty: ${o.qty} · ${o.deliveryDate||'Date TBD'} · <span style="color:var(--gold);font-weight:700">${o.status||'New'}</span></div>${o.note?`<div class="mo-date" style="margin-top:.3rem">Note: ${o.note}</div>`:''}`;
+    const snap = await window._getDocs(q);
+    if(snap.empty){ list.innerHTML = '<p style="color:var(--muted);font-size:.85rem;text-align:center;padding:1rem">No orders yet 🎂</p>'; return; }
+    list.innerHTML = '';
+    snap.forEach(d => {
+      const o = d.data();
+      const div = document.createElement('div'); div.className = 'my-order-card';
+      div.innerHTML = `<div class="mo-cake">🎂 ${o.cake}</div><div class="mo-date">Qty: ${o.qty} · ${o.deliveryDate || 'Date TBD'} · <span style="color:var(--gold);font-weight:700">${o.status || 'New'}</span></div>${o.note ? `<div class="mo-date" style="margin-top:.3rem">Note: ${o.note}</div>` : ''}`;
       list.appendChild(div);
     });
-  }catch(e){list.innerHTML='<p style="color:var(--rose);font-size:.85rem">Error loading orders.</p>'}
+  } catch(e){ list.innerHTML = '<p style="color:var(--rose);font-size:.85rem">Error loading orders.</p>'; }
 }
-document.getElementById('myOrdersOverlay').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open')});
+document.getElementById('myOrdersOverlay').addEventListener('click', function(e){ if(e.target === this) this.classList.remove('open'); });
 
 /* ===== MOBILE MENU ===== */
 function toggleMobileMenu(){
@@ -1018,107 +1124,116 @@ function closeMobileMenu(){
   document.getElementById('mobileMenu').classList.remove('open');
 }
 
-/* ===== SECRET LOGO TAP ===== */
-let tapCount=0,tapTimer=null,hideTimer=null;
-document.getElementById('logoTap').addEventListener('click',()=>{
-  tapCount++;clearTimeout(tapTimer);
-  tapTimer=setTimeout(()=>tapCount=0,3000);
-  if(tapCount>=5){
-    tapCount=0;
-    const btn=document.getElementById('adminTrigger');
-    btn.style.display='block';clearTimeout(hideTimer);
-    hideTimer=setTimeout(()=>{if(!document.getElementById('adminOverlay').classList.contains('open'))btn.style.display='none';},10000);
+/* ===== SECRET LOGO TAP (admin reveal) ===== */
+let tapCount = 0, tapTimer = null, hideTimer = null;
+document.getElementById('logoTap').addEventListener('click', () => {
+  tapCount++;
+  clearTimeout(tapTimer);
+  tapTimer = setTimeout(() => tapCount = 0, 3000);
+  if(tapCount >= 5){
+    tapCount = 0;
+    const btn = document.getElementById('adminTrigger');
+    btn.style.display = 'block';
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+      if(!document.getElementById('adminOverlay').classList.contains('open')) btn.style.display = 'none';
+    }, 10000);
   }
 });
 
 /* ===== ADMIN ===== */
-let adminIn=false;
+let adminIn = false;
 function openAdmin(){
   document.getElementById('adminOverlay').classList.add('open');
-  document.getElementById('adminLogin').style.display=adminIn?'none':'block';
-  document.getElementById('adminPanel').style.display=adminIn?'block':'none';
-  if(adminIn){renderAdminList();loadAdminOrders();updateStats();}
+  document.getElementById('adminLogin').style.display = adminIn ? 'none' : 'block';
+  document.getElementById('adminPanel').style.display = adminIn ? 'block' : 'none';
+  if(adminIn){ renderAdminList(); loadAdminOrders(); updateStats(); }
 }
 function closeAdmin(){
   document.getElementById('adminOverlay').classList.remove('open');
-  document.getElementById('adminTrigger').style.display='none';
+  document.getElementById('adminTrigger').style.display = 'none';
 }
 async function adminLogin(){
-  const email=document.getElementById('aEmail').value.trim();
-  const pass=document.getElementById('aPass').value;
-  const err=document.getElementById('aErr');
-  const[eh,ph]=await Promise.all([sha256(email),sha256(pass)]);
-  if(eh===AE&&ph===AP){
-    adminIn=true;err.classList.remove('show');
-    document.getElementById('adminLogin').style.display='none';
-    document.getElementById('adminPanel').style.display='block';
-    renderAdminList();loadAdminOrders();updateStats();
-  }else{err.classList.add('show');document.getElementById('aPass').value=''}
+  const email = document.getElementById('aEmail').value.trim();
+  const pass = document.getElementById('aPass').value;
+  const err = document.getElementById('aErr');
+  const [eh, ph] = await Promise.all([sha256(email), sha256(pass)]);
+  if(eh === AE && ph === AP){
+    adminIn = true;
+    err.classList.remove('show');
+    document.getElementById('adminLogin').style.display = 'none';
+    document.getElementById('adminPanel').style.display = 'block';
+    renderAdminList(); loadAdminOrders(); updateStats();
+  } else {
+    err.classList.add('show');
+    document.getElementById('aPass').value = '';
+  }
 }
-function adminLogout(){adminIn=false;closeAdmin();showToast('Admin logged out')}
-document.getElementById('aPass').addEventListener('keydown',e=>{if(e.key==='Enter')adminLogin()});
-document.getElementById('adminOverlay').addEventListener('click',function(e){if(e.target===this)closeAdmin()});
+function adminLogout(){ adminIn = false; closeAdmin(); showToast('Admin logged out'); }
+document.getElementById('aPass').addEventListener('keydown', e => { if(e.key === 'Enter') adminLogin(); });
+document.getElementById('adminOverlay').addEventListener('click', function(e){ if(e.target === this) closeAdmin(); });
 
 async function updateStats(){
-  if(!window._fbReady)return;
-  try{
-    const statsDoc=await window._getDoc(window._doc(window._db,'stats','global'));
-    const s=statsDoc.exists()?statsDoc.data():{};
-    document.getElementById('statVisits').textContent=s.visits||0;
-    document.getElementById('statUsers').textContent=s.users||0;
-    document.getElementById('statCakes').textContent=cakes.length;
-    const oSnap=await window._getDocs(window._col(window._db,'orders'));
-    document.getElementById('statOrders').textContent=oSnap.size;
-  }catch(e){}
+  if(!window._fbReady) return;
+  try {
+    const statsDoc = await window._getDoc(window._doc(window._db, 'stats', 'global'));
+    const s = statsDoc.exists() ? statsDoc.data() : {};
+    document.getElementById('statVisits').textContent = s.visits || 0;
+    document.getElementById('statUsers').textContent = s.users || 0;
+    document.getElementById('statCakes').textContent = cakes.length;
+    const oSnap = await window._getDocs(window._col(window._db, 'orders'));
+    document.getElementById('statOrders').textContent = oSnap.size;
+  } catch(e){}
 }
 
 async function loadAdminOrders(){
-  if(!window._fbReady)return;
-  const el=document.getElementById('adminOrders');
-  el.innerHTML='<div class="fb-loading">Loading…</div>';
-  try{
-    const q=window._query(window._col(window._db,'orders'),window._orderBy('createdAt','desc'));
-    const snap=await window._getDocs(q);
-    if(snap.empty){el.innerHTML='<p style="color:var(--muted);font-size:.85rem;padding:.5rem">No orders yet.</p>';return}
-    el.innerHTML='';
-    snap.forEach(d=>{
-      const o=d.data();const id=d.id;
-      const div=document.createElement('div');div.className='order-card';
-      const statusClass=o.status==='Confirmed'?'status-confirmed':o.status==='Done'?'status-done':'status-new';
-      div.innerHTML=`<div class="o-name">🎂 ${o.cake} × ${o.qty}</div>
-        <div class="o-detail">👤 ${o.customerName} · 📱 ${o.phone}${o.email?` · 📧 ${o.email}`:''}</div>
-        <div class="o-detail">📅 Delivery: ${o.deliveryDate||'TBD'}${o.note?` · 📝 ${o.note}`:''}</div>
-        <span class="o-status ${statusClass}">${o.status||'New'}</span>
+  if(!window._fbReady) return;
+  const el = document.getElementById('adminOrders');
+  el.innerHTML = '<div class="fb-loading">Loading…</div>';
+  try {
+    const q = window._query(window._col(window._db,'orders'), window._orderBy('createdAt','desc'));
+    const snap = await window._getDocs(q);
+    if(snap.empty){ el.innerHTML = '<p style="color:var(--muted);font-size:.85rem;padding:.5rem">No orders yet.</p>'; return; }
+    el.innerHTML = '';
+    snap.forEach(d => {
+      const o = d.data(); const id = d.id;
+      const div = document.createElement('div'); div.className = 'order-card';
+      const statusClass = o.status === 'Confirmed' ? 'status-confirmed' : o.status === 'Done' ? 'status-done' : 'status-new';
+      div.innerHTML = `<div class="o-name">🎂 ${o.cake} × ${o.qty}</div>
+        <div class="o-detail">👤 ${o.customerName} · 📱 ${o.phone}${o.email ? ` · 📧 ${o.email}` : ''}</div>
+        <div class="o-detail">📅 Delivery: ${o.deliveryDate || 'TBD'}${o.note ? ` · 📝 ${o.note}` : ''}</div>
+        <span class="o-status ${statusClass}">${o.status || 'New'}</span>
         <button class="btn-status" onclick="updateOrderStatus('${id}','Confirmed')">✅</button>
         <button class="btn-status" style="background:var(--green)" onclick="updateOrderStatus('${id}','Done')">🏁</button>
         <button class="btn-del" style="margin-left:.3rem" onclick="deleteOrder('${id}')">🗑</button>`;
       el.appendChild(div);
     });
-  }catch(e){el.innerHTML='<p style="color:var(--rose);font-size:.85rem">Error loading orders.</p>'}
+  } catch(e){ el.innerHTML = '<p style="color:var(--rose);font-size:.85rem">Error loading orders.</p>'; }
 }
 
-async function updateOrderStatus(id,status){
-  if(!window._fbReady)return;
-  try{
-    await window._updateDoc(window._doc(window._db,'orders',id),{status});
-    showToast('Order marked as '+status+' ✅');
+async function updateOrderStatus(id, status){
+  if(!window._fbReady) return;
+  try {
+    await window._updateDoc(window._doc(window._db,'orders',id), {status});
+    showToast('Order marked as ' + status + ' ✅');
     loadAdminOrders();
-  }catch(e){showToast('Error updating order')}
+  } catch(e){ showToast('Error updating order'); }
 }
 
 async function deleteOrder(id){
-  if(!confirm('Delete this order?'))return;
-  try{
+  if(!confirm('Delete this order?')) return;
+  try {
     await window._deleteDoc(window._doc(window._db,'orders',id));
-    showToast('Order deleted');loadAdminOrders();updateStats();
-  }catch(e){showToast('Error deleting')}
+    showToast('Order deleted');
+    loadAdminOrders(); updateStats();
+  } catch(e){ showToast('Error deleting'); }
 }
 
 /* ===== CAKE DATA ===== */
-const CAT={cream:'Cream Cake',dry:'Dry Cake',musttry:'Must Try'};
-let cakes=[],activeFilter='all';
+const CAT = {cream:'Cream Cake', dry:'Dry Cake', musttry:'Must Try'};
+let cakes = [], activeFilter = 'all';
 
-const DEFAULTS=[
+const DEFAULTS = [
   {name:'Chocolate Cake',cat:'cream',desc:'Rich velvety layers with smooth chocolate cream frosting.',img:'',badge:'Bestseller',price:'350'},
   {name:'Pineapple Cake',cat:'cream',desc:'Light sponge with fresh pineapple and whipped cream.',img:'',badge:'',price:'300'},
   {name:'Strawberry Cake',cat:'cream',desc:'Sweet strawberry filling layered with fluffy vanilla cream.',img:'',badge:'',price:'320'},
@@ -1135,170 +1250,169 @@ const DEFAULTS=[
 ];
 
 async function loadCakesFromFirebase(){
-  if(!window._fbReady){cakes=DEFAULTS.map((c,i)=>({...c,id:'default_'+i}));renderGrid('all');populateOrderSelect();return}
-  try{
-    const snap=await window._getDocs(window._query(window._col(window._db,'cakes'),window._orderBy('createdAt','asc')));
+  if(!window._fbReady){ cakes = DEFAULTS.map((c,i) => ({...c, id:'default_'+i})); renderGrid('all'); populateOrderSelect(); return; }
+  try {
+    const snap = await window._getDocs(window._query(window._col(window._db,'cakes'), window._orderBy('createdAt','asc')));
     if(snap.empty){
-      for(const c of DEFAULTS){
-        await window._addDoc(window._col(window._db,'cakes'),{...c,createdAt:window._serverTimestamp()});
-      }
-      const snap2=await window._getDocs(window._query(window._col(window._db,'cakes'),window._orderBy('createdAt','asc')));
-      cakes=[];snap2.forEach(d=>cakes.push({id:d.id,...d.data()}));
-    }else{
-      cakes=[];snap.forEach(d=>cakes.push({id:d.id,...d.data()}));
+      for(const c of DEFAULTS){ await window._addDoc(window._col(window._db,'cakes'), {...c, createdAt:window._serverTimestamp()}); }
+      const snap2 = await window._getDocs(window._query(window._col(window._db,'cakes'), window._orderBy('createdAt','asc')));
+      cakes = []; snap2.forEach(d => cakes.push({id:d.id, ...d.data()}));
+    } else {
+      cakes = []; snap.forEach(d => cakes.push({id:d.id, ...d.data()}));
     }
-  }catch(e){
-    console.log('Firebase error, using defaults:',e);
-    cakes=DEFAULTS.map((c,i)=>({...c,id:'default_'+i}));
+  } catch(e){
+    cakes = DEFAULTS.map((c,i) => ({...c, id:'default_'+i}));
   }
   renderGrid(activeFilter);
   populateOrderSelect();
 }
 
 function populateOrderSelect(){
-  const sel=document.getElementById('oCake');
-  sel.innerHTML='<option value="">-- Select a cake --</option>';
-  cakes.forEach(c=>{
-    const opt=document.createElement('option');
-    opt.value=c.name;opt.textContent=`${c.name}${c.price?' (₹'+c.price+')':''}`;
+  const sel = document.getElementById('oCake');
+  sel.innerHTML = '<option value="">-- Select a cake --</option>';
+  cakes.forEach(c => {
+    const opt = document.createElement('option');
+    opt.value = c.name;
+    opt.textContent = `${c.name}${c.price ? ' (₹'+c.price+')' : ''}`;
     sel.appendChild(opt);
   });
 }
 
 function renderGrid(f){
-  const grid=document.getElementById('cakeGrid');
-  const list=f==='all'?cakes:cakes.filter(c=>c.cat===f);
-  if(!list.length){grid.innerHTML='<div class="loading-grid">No cakes in this category yet.</div>';return}
-  grid.innerHTML='';
-  list.forEach((c,i)=>{
-    const card=document.createElement('div');
-    card.className='cake-card';card.style.animationDelay=(i*.06)+'s';
-    card.innerHTML=`<div class="cake-img-wrap">${c.badge?`<div class="cake-badge">${c.badge}</div>`:''
-    }${c.img?`<img src="${c.img}" alt="${c.name}" loading="lazy"/>`:`<div class="cake-ph"><span>🎂</span><p>Photo coming soon</p></div>`
-    }</div><div class="cake-info"><div class="cake-name">${c.name}</div><div class="cake-cat">${CAT[c.cat]||''}</div><div class="cake-desc">${c.desc}</div>${c.price?`<div class="cake-price">₹${c.price}</div>`:''
-    }<button class="btn-order-cake" onclick="quickOrder('${c.name}')">Order This 🎂</button></div>`;
+  const grid = document.getElementById('cakeGrid');
+  const list = f === 'all' ? cakes : cakes.filter(c => c.cat === f);
+  if(!list.length){ grid.innerHTML = '<div class="loading-grid">No cakes in this category yet.</div>'; return; }
+  grid.innerHTML = '';
+  list.forEach((c, i) => {
+    const card = document.createElement('div');
+    card.className = 'cake-card'; card.style.animationDelay = (i * .06) + 's';
+    card.innerHTML = `<div class="cake-img-wrap">${c.badge ? `<div class="cake-badge">${c.badge}</div>` : ''}${c.img ? `<img src="${c.img}" alt="${c.name}" loading="lazy"/>` : `<div class="cake-ph"><span>🎂</span><p>Photo coming soon</p></div>`}</div><div class="cake-info"><div class="cake-name">${c.name}</div><div class="cake-cat">${CAT[c.cat] || ''}</div><div class="cake-desc">${c.desc}</div>${c.price ? `<div class="cake-price">₹${c.price}</div>` : ''}<button class="btn-order-cake" onclick="quickOrder('${c.name}')">Order This 🎂</button></div>`;
     grid.appendChild(card);
   });
 }
 
 function quickOrder(name){
-  document.getElementById('oCake').value=name;
+  document.getElementById('oCake').value = name;
   document.getElementById('order').scrollIntoView({behavior:'smooth'});
 }
 
-function filterCakes(f,btn){
-  activeFilter=f;
-  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
-  btn.classList.add('active');renderGrid(f);
+function filterCakes(f, btn){
+  activeFilter = f;
+  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderGrid(f);
 }
 
 async function addCake(){
-  if(!window._fbReady){showToast('Firebase not ready yet');return}
-  const name=document.getElementById('cName').value.trim();
-  if(!name){showToast('Please enter a cake name');return}
-  const newCake={
-    name,cat:document.getElementById('cCat').value,
-    price:document.getElementById('cPrice').value.trim(),
-    desc:document.getElementById('cDesc').value.trim()||'Freshly baked daily.',
-    img:document.getElementById('cImg').value.trim(),
-    badge:document.getElementById('cBadge').value.trim()||'New',
-    createdAt:window._serverTimestamp()
+  if(!window._fbReady){ showToast('Firebase not ready yet'); return; }
+  const name = document.getElementById('cName').value.trim();
+  if(!name){ showToast('Please enter a cake name'); return; }
+  const newCake = {
+    name,
+    cat: document.getElementById('cCat').value,
+    price: document.getElementById('cPrice').value.trim(),
+    desc: document.getElementById('cDesc').value.trim() || 'Freshly baked daily.',
+    img: document.getElementById('cImg').value.trim(),
+    badge: document.getElementById('cBadge').value.trim() || 'New',
+    createdAt: window._serverTimestamp()
   };
-  try{
-    const ref=await window._addDoc(window._col(window._db,'cakes'),newCake);
-    cakes.push({id:ref.id,...newCake});
-    renderGrid(activeFilter);renderAdminList();populateOrderSelect();
-    ['cName','cDesc','cBadge','cImg','cPrice'].forEach(id=>document.getElementById(id).value='');
-    showToast('✅ '+name+' added to Firebase menu!');
+  try {
+    const ref = await window._addDoc(window._col(window._db,'cakes'), newCake);
+    cakes.push({id:ref.id, ...newCake});
+    renderGrid(activeFilter); renderAdminList(); populateOrderSelect();
+    ['cName','cDesc','cBadge','cImg','cPrice'].forEach(id => document.getElementById(id).value = '');
+    showToast('✅ ' + name + ' added to Firebase menu!');
     updateStats();
-  }catch(e){showToast('Error adding cake: '+e.message)}
+  } catch(e){ showToast('Error adding cake: ' + e.message); }
 }
 
 async function deleteCake(id){
-  if(!confirm('Remove this cake from Firebase?'))return;
-  try{
+  if(!confirm('Remove this cake from Firebase?')) return;
+  try {
     await window._deleteDoc(window._doc(window._db,'cakes',id));
-    cakes=cakes.filter(c=>c.id!==id);
-    renderGrid(activeFilter);renderAdminList();populateOrderSelect();
-    showToast('Cake removed ✅');updateStats();
-  }catch(e){showToast('Error: '+e.message)}
+    cakes = cakes.filter(c => c.id !== id);
+    renderGrid(activeFilter); renderAdminList(); populateOrderSelect();
+    showToast('Cake removed ✅'); updateStats();
+  } catch(e){ showToast('Error: ' + e.message); }
 }
 
 function renderAdminList(){
-  const el=document.getElementById('adminList');el.innerHTML='';
-  cakes.forEach(c=>{
-    const row=document.createElement('div');row.className='adm-item';
-    row.innerHTML=`<span><strong>${c.name}</strong> <span class="cpill">· ${CAT[c.cat]||c.cat}${c.price?' · ₹'+c.price:''}</span></span><button class="btn-del" onclick="deleteCake('${c.id}')">Remove</button>`;
+  const el = document.getElementById('adminList'); el.innerHTML = '';
+  cakes.forEach(c => {
+    const row = document.createElement('div'); row.className = 'adm-item';
+    row.innerHTML = `<span><strong>${c.name}</strong> <span class="cpill">· ${CAT[c.cat] || c.cat}${c.price ? ' · ₹'+c.price : ''}</span></span><button class="btn-del" onclick="deleteCake('${c.id}')">Remove</button>`;
     el.appendChild(row);
   });
 }
 
 /* ===== PLACE ORDER ===== */
 async function placeOrder(){
-  const name=document.getElementById('oName').value.trim();
-  const phone=document.getElementById('oPhone').value.trim().replace(/\D/g,'');
-  const cake=document.getElementById('oCake').value;
-  const qty=document.getElementById('oQty').value||1;
-  const note=document.getElementById('oNote').value.trim();
-  const date=document.getElementById('oDate').value;
-  const u=window._currentUserData||JSON.parse(getCk('mk_user')||'{}');
+  const name = document.getElementById('oName').value.trim();
+  const phone = document.getElementById('oPhone').value.trim().replace(/\D/g,'');
+  const cake = document.getElementById('oCake').value;
+  const qty = document.getElementById('oQty').value || 1;
+  const note = document.getElementById('oNote').value.trim();
+  const date = document.getElementById('oDate').value;
+  const u = window._currentUserData || JSON.parse(getCk('mk_user') || '{}');
 
-  if(!name||phone.length<10){showToast('Please enter your name and phone number');return}
-  if(!cake){showToast('Please select a cake');return}
-  if(!date){showToast('Please select a delivery date');return}
+  if(!name || phone.length < 10){ showToast('Please enter your name and phone number'); return; }
+  if(!cake){ showToast('Please select a cake'); return; }
+  if(!date){ showToast('Please select a delivery date'); return; }
+  if(!window._fbReady){ showToast('Connecting to Firebase… please try again in a moment'); return; }
 
-  if(!window._fbReady){
-    showToast('Connecting to Firebase… please try again in a moment');
-    // Try to reload firebase
-    setTimeout(()=>{if(window._fbReady)showToast('Ready! Try placing order again.')},3000);
-    return;
-  }
-
-  const order={
-    customerName:name,phone,email:u.email||'',
-    cake,qty:parseInt(qty),note,deliveryDate:date,
-    status:'New',createdAt:window._serverTimestamp()
+  const order = {
+    customerName: name, phone, email: u.email || '',
+    cake, qty: parseInt(qty), note, deliveryDate: date,
+    status: 'New', createdAt: window._serverTimestamp()
   };
 
-  try{
-    await window._addDoc(window._col(window._db,'orders'),order);
+  try {
+    await window._addDoc(window._col(window._db,'orders'), order);
     showToast('🎂 Order placed! We\'ll confirm on WhatsApp.');
-    const msg=`Hi Madhukunj Bakers!%0AName: ${encodeURIComponent(name)}%0APhone: ${phone}%0ACake: ${encodeURIComponent(cake)} × ${qty}%0ADate: ${date}${note?`%0ANote: ${encodeURIComponent(note)}`:''}`;
-    setTimeout(()=>window.open(`https://wa.me/917037050185?text=${msg}`,'_blank'),1000);
-    document.getElementById('oName').value='';
-    document.getElementById('oPhone').value='';
-    document.getElementById('oCake').value='';
-    document.getElementById('oQty').value='1';
-    document.getElementById('oNote').value='';
-    document.getElementById('oDate').value='';
-    await window._setDoc(window._doc(window._db,'stats','global'),{orders:window._increment(1)},{merge:true});
-  }catch(e){showToast('Error placing order: '+e.message)}
+    const msg = `Hi Madhukunj Bakers!%0AName: ${encodeURIComponent(name)}%0APhone: ${phone}%0ACake: ${encodeURIComponent(cake)} × ${qty}%0ADate: ${date}${note ? `%0ANote: ${encodeURIComponent(note)}` : ''}`;
+    setTimeout(() => window.open(`https://wa.me/917037050185?text=${msg}`, '_blank'), 1000);
+    ['oName','oPhone','oNote','oDate'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('oCake').value = '';
+    document.getElementById('oQty').value = '1';
+    await window._setDoc(window._doc(window._db,'stats','global'), {orders: window._increment(1)}, {merge:true});
+  } catch(e){ showToast('Error placing order: ' + e.message); }
 }
 
 /* ===== INIT ===== */
-window.addEventListener('fbReady',()=>{
-  loadCakesFromFirebase();
-});
-window.addEventListener('load',()=>{
-  if(!getCk('mk_consent'))setTimeout(()=>document.getElementById('cookieBanner').classList.add('show'),1500);
-  // Restore session from cookie
-  try{
-    const saved=getCk('mk_user');
-    if(saved){
-      const u=JSON.parse(saved);
-      showUser(u);
-      document.getElementById('loginGate').style.display='none';
-      window._currentUserData=u;
+window.addEventListener('fbReady', () => { loadCakesFromFirebase(); });
+
+window.addEventListener('load', () => {
+  if(!getCk('mk_consent')) setTimeout(() => document.getElementById('cookieBanner').classList.add('show'), 1500);
+
+  // Check lockout state
+  checkLockoutOnLoad();
+
+  // Restore session from Firebase Auth (handled by onAuthStateChanged)
+  // Fallback: restore from cookie if Firebase auth hasn't fired
+  setTimeout(() => {
+    if(!window._currentUserData){
+      try {
+        const saved = getCk('mk_user');
+        if(saved){
+          const u = JSON.parse(saved);
+          showUser(u);
+          document.getElementById('loginGate').style.display = 'none';
+          window._currentUserData = u;
+        }
+      } catch {}
     }
-  }catch{}
-  if(window._fbReady)loadCakesFromFirebase();
+  }, 800);
+
+  if(window._fbReady) loadCakesFromFirebase();
+
   // Set min date for delivery (tomorrow)
-  const today=new Date();today.setDate(today.getDate()+1);
-  document.getElementById('oDate').min=today.toISOString().split('T')[0];
+  const today = new Date(); today.setDate(today.getDate() + 1);
+  document.getElementById('oDate').min = today.toISOString().split('T')[0];
+
   // Pre-fill order form
-  const u=window._currentUserData||JSON.parse(getCk('mk_user')||'{}');
-  if(u.name)document.getElementById('oName').value=u.name;
-  if(u.phone)document.getElementById('oPhone').value=u.phone;
+  const u = window._currentUserData || JSON.parse(getCk('mk_user') || '{}');
+  if(u.name) document.getElementById('oName').value = u.name;
+  if(u.phone) document.getElementById('oPhone').value = u.phone;
 });
 </script>
 </body>
