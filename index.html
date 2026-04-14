@@ -4,575 +4,238 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Madhukunj Bakery – Freshly Baked Delights</title>
-
-<!-- Google Sign-In -->
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Lato:wght@300;400;700&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet"/>
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet"/>
 <style>
-/* ═══════════════════════════════════════════
-   CSS VARIABLES & RESET
-═══════════════════════════════════════════ */
-:root {
-  --cream:      #fdf6ec;
-  --warm:       #f5e6cc;
-  --brown:      #5c3317;
-  --dark:       #2b1a0e;
-  --gold:       #c9843a;
-  --rose:       #d4605a;
-  --blush:      #f0c4a0;
-  --text:       #3a2010;
-  --muted:      #7a5535;
-  --card-bg:    #ffffff;
-  --shadow:     rgba(92,51,23,0.10);
-  --shadow-lg:  rgba(92,51,23,0.18);
+:root{
+  --cream:#fdf7f0;--warm:#f5e6cc;--brown:#5c3317;--dark:#2b1a0e;
+  --gold:#c9843a;--rose:#d4605a;--blush:#f0c4a0;--muted:#7a5535;
+  --shadow:rgba(92,51,23,.10);--shadow-lg:rgba(92,51,23,.20);
 }
-*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior: smooth; }
-body {
-  font-family: 'Lato', sans-serif;
-  background: var(--cream);
-  color: var(--text);
-  overflow-x: hidden;
-}
-a { text-decoration: none; color: inherit; }
-button { cursor: pointer; font-family: inherit; }
-img { max-width: 100%; display: block; }
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;font-family:inherit}
 
-/* ═══════════════════════════════════════════
-   COOKIE BANNER
-═══════════════════════════════════════════ */
-#cookieBanner {
-  position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999;
-  background: var(--dark);
-  color: rgba(255,255,255,0.85);
-  display: flex; align-items: center; justify-content: space-between;
-  flex-wrap: wrap; gap: 1rem;
-  padding: 1rem 2rem;
-  font-size: 0.85rem;
-  transform: translateY(100%);
-  transition: transform 0.4s ease;
+/* COOKIE BANNER */
+#cookieBanner{
+  position:fixed;bottom:0;left:0;right:0;z-index:9999;
+  background:var(--dark);color:rgba(255,255,255,.82);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;padding:1rem 2rem;font-size:.84rem;
+  transform:translateY(110%);transition:transform .45s ease;
 }
-#cookieBanner.show { transform: translateY(0); }
-#cookieBanner span { flex: 1; min-width: 200px; }
-#cookieBanner span a { color: var(--gold); text-decoration: underline; }
-.cookie-btns { display: flex; gap: 0.75rem; }
-.cookie-btn {
-  padding: 0.5rem 1.2rem; border-radius: 999px; border: none;
-  font-weight: 700; font-size: 0.8rem; transition: all 0.2s;
-}
-.cookie-accept { background: var(--gold); color: #fff; }
-.cookie-accept:hover { background: var(--brown); }
-.cookie-decline { background: transparent; color: rgba(255,255,255,0.6); border: 1px solid rgba(255,255,255,0.3); }
-.cookie-decline:hover { color: #fff; }
+#cookieBanner.show{transform:translateY(0)}
+#cookieBanner span{flex:1;min-width:200px;line-height:1.6}
+.ck-btns{display:flex;gap:.7rem}
+.ck-btn{padding:.45rem 1.1rem;border-radius:999px;border:none;font-weight:700;font-size:.78rem;transition:all .2s}
+.ck-accept{background:var(--gold);color:#fff}.ck-accept:hover{background:var(--brown)}
+.ck-decline{background:transparent;color:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.3)}.ck-decline:hover{color:#fff}
 
-/* ═══════════════════════════════════════════
-   CUSTOMER LOGIN GATE
-═══════════════════════════════════════════ */
-#loginGate {
-  position: fixed; inset: 0; z-index: 8000;
-  background: radial-gradient(ellipse at 50% 60%, #f9ede0, #e8c48a);
-  display: flex; align-items: center; justify-content: center;
-  padding: 1.5rem;
+/* LOGIN GATE */
+#loginGate{
+  position:fixed;inset:0;z-index:8000;
+  background:radial-gradient(ellipse at 50% 55%,#fdf1e2,#e8c080);
+  display:flex;align-items:center;justify-content:center;padding:1.5rem;
 }
-.login-box {
-  background: #fff;
-  border-radius: 28px;
-  padding: 3rem 2.5rem;
-  max-width: 420px; width: 100%;
-  text-align: center;
-  box-shadow: 0 30px 80px var(--shadow-lg);
-  animation: popIn 0.5s cubic-bezier(0.34,1.56,0.64,1) both;
+.login-box{
+  background:#fff;border-radius:28px;padding:2.8rem 2.4rem;
+  max-width:420px;width:100%;text-align:center;
+  box-shadow:0 30px 80px var(--shadow-lg);
+  animation:popIn .5s cubic-bezier(.34,1.56,.64,1) both;
 }
-.login-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.8rem; font-weight: 900;
-  color: var(--dark); margin-bottom: 0.2rem;
+.login-brand{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;color:var(--dark);margin-bottom:.15rem}
+.login-brand span{font-family:'Dancing Script',cursive;color:var(--gold)}
+.login-sub{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.login-emoji{font-size:3rem;display:block;margin-bottom:.8rem}
+.login-box h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--dark);margin-bottom:.4rem}
+.login-box p{font-size:.88rem;color:var(--muted);margin-bottom:1.8rem;line-height:1.65}
+.inp{
+  width:100%;padding:.8rem 1.1rem;border:2px solid #e8ddd0;border-radius:14px;
+  font-family:'Outfit',sans-serif;font-size:.95rem;color:var(--dark);
+  background:var(--cream);outline:none;transition:border-color .2s;margin-bottom:.9rem;
 }
-.login-logo span { color: var(--gold); font-family: 'Dancing Script', cursive; }
-.login-tag {
-  font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 2rem;
+.inp:focus{border-color:var(--gold)}
+.inp::placeholder{color:#bba898}
+.btn-login{
+  width:100%;padding:.9rem;border-radius:999px;border:none;
+  background:var(--brown);color:#fff;font-weight:700;font-size:1rem;
+  transition:all .25s;margin-bottom:.9rem;
 }
-.login-emoji { font-size: 3.5rem; margin-bottom: 1rem; display: block; }
-.login-box h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.6rem; color: var(--dark); margin-bottom: 0.5rem;
-}
-.login-box p { font-size: 0.9rem; color: var(--muted); margin-bottom: 2rem; line-height: 1.6; }
+.btn-login:hover{background:var(--gold);transform:translateY(-2px)}
+.login-skip{font-size:.8rem;color:var(--muted);background:none;border:none;text-decoration:underline;transition:color .2s}
+.login-skip:hover{color:var(--gold)}
+.login-err{color:var(--rose);font-size:.8rem;margin-bottom:.6rem;display:none}
 
-/* Google Sign-In button wrapper */
-#googleSignInDiv {
-  display: flex; justify-content: center; margin-bottom: 1.2rem;
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.85rem 2rem;
+  background:rgba(253,247,240,.92);backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(201,132,58,.15);
 }
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--brown)}
+.nav-logo span{font-family:'Dancing Script',cursive;color:var(--gold)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:.86rem;font-weight:600;color:var(--dark);transition:color .2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-right{display:flex;align-items:center;gap:.75rem}
+#navUserPill{
+  display:none;align-items:center;gap:.5rem;
+  background:var(--warm);border-radius:999px;
+  padding:.32rem .9rem .32rem .45rem;font-size:.8rem;font-weight:700;color:var(--brown);
+}
+#navAvatar{
+  width:28px;height:28px;border-radius:50%;background:var(--gold);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:.78rem;font-weight:700;flex-shrink:0;
+}
+.btn-admin{background:var(--gold);color:#fff;border:none;padding:.48rem 1.1rem;border-radius:999px;font-size:.8rem;font-weight:700;transition:background .2s}
+.btn-admin:hover{background:var(--brown)}
 
-.login-skip {
-  font-size: 0.8rem; color: var(--muted);
-  background: none; border: none; text-decoration: underline;
-  transition: color 0.2s;
+/* HERO */
+.hero{
+  min-height:100vh;padding-top:70px;
+  background:radial-gradient(ellipse at 62% 48%,#fdf3e5,#f5dcb0 55%,#eac98a);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding-inline:2rem;position:relative;overflow:hidden;
 }
-.login-skip:hover { color: var(--gold); }
+.hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='35' cy='35' r='2.5' fill='%23c9843a' fill-opacity='0.07'/%3E%3C/svg%3E");
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:var(--brown);color:#fff;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:.45rem 1.3rem;border-radius:999px;margin-bottom:1.8rem;animation:fadeDown .7s ease both;
+}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;font-size:clamp(3.4rem,10vw,7.5rem);
+  font-weight:700;color:var(--dark);line-height:1.05;animation:fadeDown .8s .1s ease both;
+}
+.hero h1 em{font-family:'Dancing Script',cursive;color:var(--gold);font-style:normal;display:block;font-size:clamp(2.6rem,7.5vw,5.5rem)}
+.hero-p{max-width:480px;margin-top:1.3rem;font-size:1.05rem;color:var(--muted);line-height:1.75;animation:fadeDown .9s .2s ease both}
+.hero-cta{margin-top:2.5rem;display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;animation:fadeDown 1s .3s ease both}
+.btn{padding:.85rem 2.1rem;border-radius:999px;font-weight:700;font-size:.93rem;border:2px solid transparent;transition:all .25s;display:inline-block}
+.btn-primary{background:var(--brown);color:#fff}.btn-primary:hover{background:var(--gold);transform:translateY(-3px)}
+.btn-outline{background:transparent;border-color:var(--brown);color:var(--brown)}.btn-outline:hover{background:var(--brown);color:#fff;transform:translateY(-3px)}
+.floaty{position:absolute;font-size:5rem;opacity:.11;animation:float 7s ease-in-out infinite;pointer-events:none;user-select:none}
+.f1{top:12%;left:4%;animation-delay:0s}.f2{top:16%;right:6%;font-size:3.5rem;animation-delay:1.8s}
+.f3{bottom:18%;left:7%;font-size:4rem;animation-delay:3.2s}.f4{bottom:20%;right:5%;animation-delay:2s}
 
-.login-user-bar {
-  display: none;
-  align-items: center; gap: 0.75rem;
-  background: var(--warm);
-  border-radius: 12px;
-  padding: 0.75rem 1rem;
-  margin-bottom: 1.2rem;
-  text-align: left;
-}
-.login-user-bar img {
-  width: 40px; height: 40px;
-  border-radius: 50%; object-fit: cover;
-}
-.login-user-bar .uname { font-weight: 700; font-size: 0.9rem; color: var(--dark); }
-.login-user-bar .uemail { font-size: 0.75rem; color: var(--muted); }
+/* ORDER STRIP */
+.order-strip{background:var(--gold);color:#fff;text-align:center;padding:1.1rem 2rem;font-weight:700;font-size:.9rem}
+.order-strip a{color:#fff;text-decoration:underline;margin-left:.5rem}
 
-.btn-enter {
-  display: none;
-  width: 100%; padding: 0.9rem;
-  background: var(--brown); color: #fff;
-  border: none; border-radius: 999px;
-  font-weight: 700; font-size: 1rem;
-  transition: background 0.2s, transform 0.2s;
-  margin-bottom: 1rem;
-}
-.btn-enter:hover { background: var(--gold); transform: translateY(-2px); }
+/* MENU */
+.menu-sec{padding:5rem 2rem;background:var(--warm)}
+.sec-inner{max-width:1120px;margin:0 auto}
+.sec-eye{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:.4rem}
+.sec-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:700;color:var(--dark);line-height:1.15}
+.sec-title em{color:var(--gold);font-style:italic}
+.cat-tabs{display:flex;gap:.6rem;flex-wrap:wrap;margin:2.5rem 0}
+.cat-tab{padding:.52rem 1.35rem;border-radius:999px;border:2px solid var(--blush);background:transparent;color:var(--muted);font-weight:700;font-size:.86rem;transition:all .25s}
+.cat-tab.active,.cat-tab:hover{background:var(--brown);border-color:var(--brown);color:#fff}
+.cake-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.8rem}
+.cake-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:0 4px 22px var(--shadow);transition:transform .3s,box-shadow .3s;animation:fadeUp .5s ease both}
+.cake-card:hover{transform:translateY(-7px);box-shadow:0 16px 40px var(--shadow-lg)}
+.cake-img-wrap{width:100%;aspect-ratio:4/3;overflow:hidden;background:linear-gradient(135deg,var(--warm),var(--blush));display:flex;align-items:center;justify-content:center;position:relative}
+.cake-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.cake-card:hover .cake-img-wrap img{transform:scale(1.06)}
+.cake-ph{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;font-size:3.5rem;opacity:.35}
+.cake-ph p{font-size:.7rem;color:var(--muted);margin-top:.35rem}
+.cake-badge{position:absolute;top:.7rem;left:.7rem;background:var(--rose);color:#fff;font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;padding:.28rem .65rem;border-radius:999px}
+.cake-info{padding:1.2rem}
+.cake-name{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:700;color:var(--dark)}
+.cake-cat{font-size:.7rem;color:var(--gold);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-top:.18rem}
+.cake-desc{font-size:.82rem;color:var(--muted);margin-top:.45rem;line-height:1.55}
 
-/* ═══════════════════════════════════════════
-   NAV
-═══════════════════════════════════════════ */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 500;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0.9rem 2rem;
-  background: rgba(253,246,236,0.88);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(201,132,58,0.18);
-  transition: all 0.3s;
-}
-.nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.35rem; font-weight: 900; color: var(--brown);
-}
-.nav-logo span { font-family: 'Dancing Script', cursive; color: var(--gold); }
-.nav-links { display: flex; gap: 2rem; list-style: none; }
-.nav-links a {
-  font-size: 0.88rem; font-weight: 700;
-  color: var(--text); transition: color 0.2s;
-  letter-spacing: 0.02em;
-}
-.nav-links a:hover { color: var(--gold); }
-.nav-right { display: flex; align-items: center; gap: 0.75rem; }
+/* ABOUT */
+.about-sec{background:var(--dark);color:#fff;padding:5rem 2rem;text-align:center}
+.about-sec .sec-title{color:#fff}
+.about-sec>p{max-width:600px;margin:1.5rem auto 0;color:rgba(255,255,255,.62);font-size:1rem;line-height:1.82}
+.feats{display:flex;gap:1.5rem;flex-wrap:wrap;justify-content:center;margin-top:3rem}
+.feat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:1.8rem 1.5rem;max-width:200px;text-align:center;transition:background .3s}
+.feat:hover{background:rgba(255,255,255,.1)}
+.feat-ic{font-size:2.3rem;margin-bottom:.7rem}
+.feat h4{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--gold);margin-bottom:.35rem}
+.feat p{font-size:.8rem;color:rgba(255,255,255,.48);line-height:1.5}
 
-/* user pill in nav */
-#navUserPill {
-  display: none;
-  align-items: center; gap: 0.5rem;
-  background: var(--warm);
-  border-radius: 999px;
-  padding: 0.35rem 0.9rem 0.35rem 0.35rem;
-  font-size: 0.82rem; font-weight: 700; color: var(--brown);
-}
-#navUserPill img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
+/* FOOTER */
+footer{background:#1a0f07;color:rgba(255,255,255,.42);text-align:center;padding:2.5rem;font-size:.82rem;line-height:1.9}
+footer strong{color:var(--gold)}
 
-.btn-admin-nav {
-  background: var(--gold); color: #fff;
-  border: none; padding: 0.5rem 1.1rem;
-  border-radius: 999px; font-size: 0.82rem; font-weight: 700;
-  transition: background 0.2s;
-}
-.btn-admin-nav:hover { background: var(--brown); }
+/* MODALS */
+.overlay{display:none;position:fixed;inset:0;z-index:700;background:rgba(0,0,0,.55);backdrop-filter:blur(5px);align-items:center;justify-content:center;padding:1rem}
+.overlay.open{display:flex}
+.modal{background:#fff;border-radius:26px;padding:2.5rem;max-width:500px;width:100%;max-height:92vh;overflow-y:auto;position:relative;box-shadow:0 35px 90px rgba(0,0,0,.28);animation:popIn .3s ease}
+.modal-close{position:absolute;top:1.1rem;right:1.3rem;background:none;border:none;font-size:1.4rem;color:var(--muted)}
+.modal-close:hover{color:var(--rose)}
+.modal h2{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--dark);margin-bottom:.3rem}
+.modal .sub{font-size:.82rem;color:var(--muted);margin-bottom:1.8rem}
+.fg{margin-bottom:1rem}
+.fg label{display:block;font-size:.8rem;font-weight:700;color:var(--dark);margin-bottom:.35rem}
+.fg input,.fg select,.fg textarea{width:100%;padding:.75rem 1rem;border:2px solid #e8ddd0;border-radius:12px;font-family:'Outfit',sans-serif;font-size:.9rem;color:var(--dark);background:var(--cream);outline:none;transition:border-color .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--gold)}
+.err{color:var(--rose);font-size:.8rem;display:none;margin-top:.3rem}
+.err.show{display:block}
+.btn-full{width:100%;margin-top:.4rem;padding:.88rem;border-radius:999px;font-size:.93rem;font-weight:700;border:none}
+.btn-br{background:var(--brown);color:#fff;transition:background .2s}.btn-br:hover{background:var(--gold)}
+.btn-rs{background:var(--rose);color:#fff}
+.upload-area{border:2px dashed var(--blush);border-radius:14px;padding:1.7rem;text-align:center;cursor:pointer;transition:all .3s;background:var(--cream)}
+.upload-area:hover{border-color:var(--gold);background:var(--warm)}
+.upload-ic{font-size:2rem;margin-bottom:.35rem}
+.upload-area p{font-size:.8rem;color:var(--muted)}
+.img-prev{width:100%;height:150px;object-fit:cover;border-radius:10px;margin-top:.7rem;display:none}
+.adm-item{display:flex;align-items:center;justify-content:space-between;background:var(--cream);padding:.7rem 1rem;border-radius:10px;font-size:.82rem;gap:.5rem}
+.adm-item span{flex:1;color:var(--dark)}
+.adm-item .cpill{font-size:.68rem;color:var(--gold);font-weight:700;text-transform:uppercase}
+.btn-del{background:var(--rose);color:#fff;border:none;padding:.28rem .65rem;border-radius:8px;font-size:.76rem;font-weight:700;flex-shrink:0}
+hr.div{border:none;border-top:1px solid #eee;margin:1.4rem 0}
 
-/* ═══════════════════════════════════════════
-   HERO
-═══════════════════════════════════════════ */
-.hero {
-  min-height: 100vh;
-  padding-top: 80px;
-  background: radial-gradient(ellipse at 65% 45%, #fdf1e3 0%, #f5dcb0 55%, #eac98a 100%);
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  text-align: center; padding-inline: 2rem;
-  position: relative; overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='3' fill='%23c9843a' fill-opacity='0.06'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-.hero-eyebrow {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  background: var(--brown); color: #fff;
-  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
-  padding: 0.45rem 1.3rem; border-radius: 999px;
-  margin-bottom: 1.8rem;
-  animation: fadeDown 0.7s ease both;
-}
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(3.2rem, 10vw, 7rem);
-  font-weight: 900; color: var(--dark); line-height: 1.06;
-  animation: fadeDown 0.8s 0.1s ease both;
-}
-.hero h1 em {
-  font-family: 'Dancing Script', cursive;
-  color: var(--gold); font-style: normal;
-  display: block; font-size: clamp(2.4rem, 7vw, 5rem);
-}
-.hero-sub {
-  max-width: 500px; margin-top: 1.3rem;
-  font-size: 1.05rem; color: var(--muted); line-height: 1.7;
-  animation: fadeDown 0.9s 0.2s ease both;
-}
-.hero-cta {
-  margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-  animation: fadeDown 1s 0.3s ease both;
-}
-.btn {
-  padding: 0.85rem 2.1rem; border-radius: 999px;
-  font-weight: 700; font-size: 0.95rem;
-  border: 2px solid transparent; transition: all 0.25s;
-}
-.btn-primary { background: var(--brown); color: #fff; }
-.btn-primary:hover { background: var(--gold); transform: translateY(-3px); }
-.btn-outline { background: transparent; border-color: var(--brown); color: var(--brown); }
-.btn-outline:hover { background: var(--brown); color: #fff; transform: translateY(-3px); }
+/* ANIMATIONS */
+@keyframes fadeDown{from{opacity:0;transform:translateY(-18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-16px) rotate(6deg)}}
+@keyframes popIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:scale(1)}}
 
-/* floating emojis */
-.floaty {
-  position: absolute; font-size: 5rem; opacity: 0.12;
-  animation: float 7s ease-in-out infinite; pointer-events: none; user-select: none;
-}
-.f1 { top:12%; left:4%;  animation-delay:0s; }
-.f2 { top:18%; right:6%; font-size:3.5rem; animation-delay:1.8s; }
-.f3 { bottom:18%; left:8%; font-size:4rem; animation-delay:3.2s; }
-.f4 { bottom:22%; right:4%; animation-delay:2s; }
-
-/* ═══════════════════════════════════════════
-   ORDER BANNER
-═══════════════════════════════════════════ */
-.order-banner {
-  background: var(--gold); color: #fff;
-  text-align: center; padding: 1.2rem 2rem;
-  font-weight: 700; font-size: 0.92rem; letter-spacing: 0.02em;
-}
-.order-banner a {
-  color: #fff; text-decoration: underline; margin-left: 0.5rem;
-}
-
-/* ═══════════════════════════════════════════
-   MENU SECTION
-═══════════════════════════════════════════ */
-.menu-section {
-  padding: 5rem 2rem;
-  background: var(--warm);
-}
-.section-inner { max-width: 1120px; margin: 0 auto; }
-.section-eyebrow {
-  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gold); font-weight: 700; margin-bottom: 0.4rem;
-}
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(2rem, 5vw, 3.4rem);
-  font-weight: 900; color: var(--dark); line-height: 1.15;
-}
-.section-title em { color: var(--gold); font-style: italic; }
-
-/* filter tabs */
-.cat-tabs {
-  display: flex; gap: 0.6rem; flex-wrap: wrap;
-  margin: 2.5rem 0;
-}
-.cat-tab {
-  padding: 0.55rem 1.4rem; border-radius: 999px;
-  border: 2px solid var(--blush);
-  background: transparent; color: var(--muted);
-  font-weight: 700; font-size: 0.88rem;
-  transition: all 0.25s;
-}
-.cat-tab.active, .cat-tab:hover {
-  background: var(--brown); border-color: var(--brown); color: #fff;
-}
-
-/* cake grid */
-.cake-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
-  gap: 1.8rem;
-}
-.cake-card {
-  background: var(--card-bg);
-  border-radius: 20px; overflow: hidden;
-  box-shadow: 0 4px 22px var(--shadow);
-  transition: transform 0.3s, box-shadow 0.3s;
-  animation: fadeUp 0.5s ease both;
-}
-.cake-card:hover {
-  transform: translateY(-7px);
-  box-shadow: 0 16px 40px var(--shadow-lg);
-}
-.cake-img-wrap {
-  width: 100%; aspect-ratio: 4/3; overflow: hidden;
-  background: linear-gradient(135deg, var(--warm), var(--blush));
-  display: flex; align-items: center; justify-content: center;
-  position: relative;
-}
-.cake-img-wrap img {
-  width: 100%; height: 100%; object-fit: cover;
-  transition: transform 0.4s;
-}
-.cake-card:hover .cake-img-wrap img { transform: scale(1.06); }
-.cake-placeholder {
-  display: flex; flex-direction: column;
-  align-items: center; justify-content: center;
-  width: 100%; height: 100%;
-  font-size: 3.8rem; opacity: 0.35;
-}
-.cake-placeholder p { font-size: 0.72rem; color: var(--muted); margin-top: 0.4rem; font-family: 'Lato'; }
-.cake-badge {
-  position: absolute; top: 0.7rem; left: 0.7rem;
-  background: var(--rose); color: #fff;
-  font-size: 0.62rem; font-weight: 800;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  padding: 0.28rem 0.65rem; border-radius: 999px;
-}
-.cake-info { padding: 1.2rem; }
-.cake-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.12rem; font-weight: 700; color: var(--dark);
-}
-.cake-cat {
-  font-size: 0.72rem; color: var(--gold);
-  font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.1em; margin-top: 0.2rem;
-}
-.cake-desc {
-  font-size: 0.83rem; color: var(--muted);
-  margin-top: 0.5rem; line-height: 1.55;
-}
-
-/* ═══════════════════════════════════════════
-   ABOUT SECTION
-═══════════════════════════════════════════ */
-.about-section {
-  background: var(--dark); color: #fff;
-  padding: 5rem 2rem; text-align: center;
-}
-.about-section .section-title { color: #fff; }
-.about-section p {
-  max-width: 600px; margin: 1.5rem auto 0;
-  color: rgba(255,255,255,0.65); font-size: 1.02rem; line-height: 1.8;
-}
-.features {
-  display: flex; gap: 1.5rem; flex-wrap: wrap;
-  justify-content: center; margin-top: 3rem;
-}
-.feat-card {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 18px; padding: 1.8rem 1.6rem;
-  max-width: 200px; text-align: center;
-  transition: background 0.3s;
-}
-.feat-card:hover { background: rgba(255,255,255,0.1); }
-.feat-icon { font-size: 2.4rem; margin-bottom: 0.7rem; }
-.feat-card h4 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1rem; color: var(--gold); margin-bottom: 0.4rem;
-}
-.feat-card p { font-size: 0.82rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
-
-/* ═══════════════════════════════════════════
-   FOOTER
-═══════════════════════════════════════════ */
-footer {
-  background: #1a0f07; color: rgba(255,255,255,0.45);
-  text-align: center; padding: 2.5rem;
-  font-size: 0.83rem; line-height: 1.9;
-}
-footer strong { color: var(--gold); }
-
-/* ═══════════════════════════════════════════
-   ADMIN MODAL
-═══════════════════════════════════════════ */
-.overlay {
-  display: none; position: fixed; inset: 0; z-index: 700;
-  background: rgba(0,0,0,0.55);
-  backdrop-filter: blur(5px);
-  align-items: center; justify-content: center;
-  padding: 1rem;
-}
-.overlay.open { display: flex; }
-
-.modal {
-  background: #fff; border-radius: 26px;
-  padding: 2.5rem; max-width: 500px; width: 100%;
-  max-height: 92vh; overflow-y: auto;
-  position: relative;
-  box-shadow: 0 35px 90px rgba(0,0,0,0.28);
-  animation: popIn 0.3s ease;
-}
-.modal-close {
-  position: absolute; top: 1.2rem; right: 1.4rem;
-  background: none; border: none;
-  font-size: 1.4rem; color: var(--muted);
-}
-.modal-close:hover { color: var(--rose); }
-.modal h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.75rem; color: var(--dark); margin-bottom: 0.3rem;
-}
-.modal .sub { font-size: 0.83rem; color: var(--muted); margin-bottom: 1.8rem; }
-
-/* admin login form */
-#adminLoginForm .form-group,
-#addCakeForm .form-group { margin-bottom: 1.1rem; }
-.form-group label {
-  display: block; font-size: 0.82rem;
-  font-weight: 700; color: var(--text); margin-bottom: 0.4rem;
-}
-.form-group input,
-.form-group select,
-.form-group textarea {
-  width: 100%; padding: 0.75rem 1rem;
-  border: 2px solid #e8ddd0; border-radius: 12px;
-  font-family: 'Lato', sans-serif; font-size: 0.9rem;
-  color: var(--text); background: var(--cream);
-  transition: border-color 0.2s; outline: none;
-}
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus { border-color: var(--gold); }
-
-.error-msg {
-  color: var(--rose); font-size: 0.82rem;
-  display: none; margin-top: 0.4rem;
-}
-.error-msg.show { display: block; }
-
-.btn-full { width: 100%; margin-top: 0.5rem; padding: 0.9rem; border-radius: 999px; font-size: 0.95rem; font-weight: 700; border: none; }
-.btn-brown { background: var(--brown); color: #fff; transition: background 0.2s; }
-.btn-brown:hover { background: var(--gold); }
-.btn-rose { background: var(--rose); color: #fff; }
-
-/* upload area */
-.upload-area {
-  border: 2px dashed var(--blush); border-radius: 14px;
-  padding: 1.8rem; text-align: center;
-  cursor: pointer; transition: all 0.3s; background: var(--cream);
-}
-.upload-area:hover { border-color: var(--gold); background: var(--warm); }
-.upload-area .upload-icon { font-size: 2.2rem; margin-bottom: 0.4rem; }
-.upload-area p { font-size: 0.82rem; color: var(--muted); }
-.img-preview {
-  width: 100%; height: 160px; object-fit: cover;
-  border-radius: 10px; margin-top: 0.8rem; display: none;
-}
-
-/* admin cake list */
-.admin-list-item {
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--cream); padding: 0.75rem 1rem;
-  border-radius: 10px; font-size: 0.84rem;
-  gap: 0.5rem;
-}
-.admin-list-item span { flex: 1; }
-.admin-list-item strong { color: var(--dark); }
-.admin-list-item .cat-pill {
-  font-size: 0.7rem; color: var(--gold);
-  font-weight: 700; text-transform: uppercase;
-}
-.btn-del {
-  background: var(--rose); color: #fff;
-  border: none; padding: 0.3rem 0.7rem;
-  border-radius: 8px; font-size: 0.78rem; font-weight: 700;
-  flex-shrink: 0;
-}
-
-hr.divider { border: none; border-top: 1px solid #eee; margin: 1.5rem 0; }
-
-/* ═══════════════════════════════════════════
-   ANIMATIONS
-═══════════════════════════════════════════ */
-@keyframes fadeDown {
-  from { opacity:0; transform:translateY(-18px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-@keyframes fadeUp {
-  from { opacity:0; transform:translateY(18px); }
-  to   { opacity:1; transform:translateY(0); }
-}
-@keyframes float {
-  0%,100% { transform: translateY(0) rotate(0deg); }
-  50%      { transform: translateY(-16px) rotate(6deg); }
-}
-@keyframes popIn {
-  from { opacity:0; transform:scale(0.9); }
-  to   { opacity:1; transform:scale(1); }
-}
-
-/* ═══════════════════════════════════════════
-   RESPONSIVE
-═══════════════════════════════════════════ */
-@media (max-width:640px) {
-  .nav-links { display: none; }
-  nav { padding: 0.8rem 1rem; }
-  .hero { padding-top: 70px; }
-  .modal { padding: 2rem 1.5rem; }
-  .login-box { padding: 2rem 1.5rem; }
+@media(max-width:640px){
+  .nav-links{display:none}
+  nav{padding:.75rem 1rem}
+  .hero{padding-top:65px}
+  .modal{padding:2rem 1.4rem}
+  .login-box{padding:2rem 1.4rem}
 }
 </style>
 </head>
 <body>
 
-<!-- ═══ COOKIE BANNER ═══ -->
+<!-- COOKIE BANNER -->
 <div id="cookieBanner">
-  <span>
-    🍪 We use cookies to remember you and improve your experience.
-    By continuing, you agree to our <a href="#">cookie policy</a>.
-  </span>
-  <div class="cookie-btns">
-    <button class="cookie-btn cookie-accept" onclick="acceptCookies()">Accept</button>
-    <button class="cookie-btn cookie-decline" onclick="declineCookies()">Decline</button>
+  <span>🍪 We use cookies to remember your session and improve your experience.</span>
+  <div class="ck-btns">
+    <button class="ck-btn ck-accept" onclick="acceptCookies()">Accept</button>
+    <button class="ck-btn ck-decline" onclick="declineCookies()">Decline</button>
   </div>
 </div>
 
-<!-- ═══ CUSTOMER LOGIN GATE ═══ -->
+<!-- LOGIN GATE -->
 <div id="loginGate">
   <div class="login-box">
-    <div class="login-logo">Madhukunj <span>Bakery</span></div>
-    <div class="login-tag">✦ Homemade Bakery · Mathura ✦</div>
-
+    <div class="login-brand">Madhukunj <span>Bakery</span></div>
+    <div class="login-sub">✦ Homemade Bakery · Mathura ✦</div>
     <span class="login-emoji">🎂</span>
     <h2>Welcome!</h2>
-    <p>Sign in with your Google account to browse our freshly baked menu and place orders easily.</p>
-
-    <!-- Signed-in user preview (shown after Google auth) -->
-    <div class="login-user-bar" id="loginUserBar">
-      <img id="loginUserImg" src="" alt=""/>
-      <div>
-        <div class="uname" id="loginUserName"></div>
-        <div class="uemail" id="loginUserEmail"></div>
-      </div>
-    </div>
-
-    <!-- Google One Tap button -->
-    <div id="googleSignInDiv"></div>
-
-    <!-- Enter button shown after sign-in -->
-    <button class="btn-enter" id="btnEnter" onclick="enterSite()">Enter Bakery 🎂</button>
-
-    <button class="login-skip" onclick="skipLogin()">Continue as guest (browse only)</button>
+    <p>Enter your name and phone number so we can remember you for easy ordering. Takes 5 seconds.</p>
+    <input class="inp" type="text" id="gName" placeholder="Your Name" maxlength="40"/>
+    <input class="inp" type="tel"  id="gPhone" placeholder="Phone Number (e.g. 9876543210)" maxlength="15"/>
+    <p class="login-err" id="loginErr">Please enter your name and a valid 10-digit phone number.</p>
+    <button class="btn-login" onclick="doLogin()">Enter Bakery 🎂</button>
+    <button class="login-skip" onclick="skipLogin()">Skip — just browse</button>
   </div>
 </div>
 
-<!-- ═══ NAV ═══ -->
+<!-- NAV -->
 <nav>
   <div class="nav-logo">Madhukunj <span>Bakery</span></div>
   <ul class="nav-links">
@@ -582,492 +245,279 @@ hr.divider { border: none; border-top: 1px solid #eee; margin: 1.5rem 0; }
   </ul>
   <div class="nav-right">
     <div id="navUserPill">
-      <img id="navUserImg" src="" alt=""/>
-      <span id="navUserName"></span>
+      <div id="navAvatar"></div>
+      <span id="navName"></span>
     </div>
-    <button class="btn-admin-nav" onclick="openAdminModal()">🔐 Admin</button>
+    <button class="btn-admin" onclick="openAdmin()">🔐 Admin</button>
   </div>
 </nav>
 
-<!-- ═══ HERO ═══ -->
+<!-- HERO -->
 <section class="hero">
   <span class="floaty f1">🎂</span>
   <span class="floaty f2">🧁</span>
   <span class="floaty f3">🍰</span>
   <span class="floaty f4">🍩</span>
-
-  <div class="hero-eyebrow">✦ Pure Veg · Homemade · Mathura ✦</div>
-  <h1>
-    Freshly Baked
-    <em>with Love</em>
-  </h1>
-  <p class="hero-sub">Every cake is made by hand, baked fresh daily, and served with the warmth of Mathura's spirit.</p>
+  <div class="hero-badge">✦ Pure Veg · Homemade · Mathura ✦</div>
+  <h1>Freshly Baked<em>with Love</em></h1>
+  <p class="hero-p">Every cake crafted by hand, baked fresh daily, served with the warmth of Mathura's spirit.</p>
   <div class="hero-cta">
     <a href="#menu" class="btn btn-primary">Explore Menu 🎂</a>
-    <a href="https://wa.me/91XXXXXXXXXX?text=Hi%20Madhukunj%20Bakery%2C%20I%20want%20to%20place%20an%20order!" target="_blank" class="btn btn-outline" id="order">Order on WhatsApp 💬</a>
+    <a id="order" href="https://wa.me/91XXXXXXXXXX?text=Hi%20Madhukunj%20Bakery!%20I%20want%20to%20place%20an%20order." target="_blank" class="btn btn-outline">Order on WhatsApp 💬</a>
   </div>
 </section>
 
-<!-- ═══ ORDER BANNER ═══ -->
-<div class="order-banner">
+<!-- ORDER STRIP -->
+<div class="order-strip">
   ⏰ All orders must be placed at least <strong>2 hours</strong> before pickup or delivery.
   <a href="https://wa.me/91XXXXXXXXXX" target="_blank">Order on WhatsApp →</a>
 </div>
 
-<!-- ═══ MENU ═══ -->
-<section class="menu-section" id="menu">
-  <div class="section-inner">
-    <div class="section-eyebrow">Our Menu</div>
-    <h2 class="section-title">Baked to <em>Perfection</em></h2>
-
+<!-- MENU -->
+<section class="menu-sec" id="menu">
+  <div class="sec-inner">
+    <div class="sec-eye">Our Menu</div>
+    <h2 class="sec-title">Baked to <em>Perfection</em></h2>
     <div class="cat-tabs">
       <button class="cat-tab active" onclick="filterCakes('all',this)">All</button>
       <button class="cat-tab" onclick="filterCakes('cream',this)">🍰 Cream Cakes</button>
       <button class="cat-tab" onclick="filterCakes('dry',this)">🎂 Dry Cakes</button>
       <button class="cat-tab" onclick="filterCakes('musttry',this)">⭐ Must Try</button>
     </div>
-
     <div class="cake-grid" id="cakeGrid"></div>
   </div>
 </section>
 
-<!-- ═══ ABOUT ═══ -->
-<section class="about-section" id="about">
-  <div class="section-eyebrow" style="color:var(--gold)">Our Story</div>
-  <h2 class="section-title">Made in <em>Mathura</em>,<br/>with Pure Love</h2>
-  <p>Madhukunj Bakery was born from the belief that the best cakes come from honest kitchens. Nestled in the holy city of Mathura, we bake fresh every single day — no freezing, no shortcuts, just real ingredients and real care.</p>
-  <div class="features">
-    <div class="feat-card">
-      <div class="feat-icon">🌿</div>
-      <h4>Pure Veg</h4>
-      <p>100% vegetarian, always. No exceptions.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">🏠</div>
-      <h4>Homemade</h4>
-      <p>Every cake crafted by hand with patience.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">✨</div>
-      <h4>Daily Fresh</h4>
-      <p>Baked fresh every day, never frozen.</p>
-    </div>
-    <div class="feat-card">
-      <div class="feat-icon">🎁</div>
-      <h4>Custom Orders</h4>
-      <p>Special occasion? We'll bake just for you.</p>
-    </div>
+<!-- ABOUT -->
+<section class="about-sec" id="about">
+  <div class="sec-eye" style="color:var(--gold)">Our Story</div>
+  <h2 class="sec-title">Made in <em>Mathura</em>,<br/>with Pure Love</h2>
+  <p>Madhukunj Bakery was born from the belief that the best cakes come from honest kitchens. Nestled in the holy city of Mathura, we bake fresh every single day — no freezing, no shortcuts, just real ingredients and genuine care.</p>
+  <div class="feats">
+    <div class="feat"><div class="feat-ic">🌿</div><h4>Pure Veg</h4><p>100% vegetarian, always. No exceptions.</p></div>
+    <div class="feat"><div class="feat-ic">🏠</div><h4>Homemade</h4><p>Every cake crafted by hand with patience.</p></div>
+    <div class="feat"><div class="feat-ic">✨</div><h4>Daily Fresh</h4><p>Baked fresh every day, never frozen.</p></div>
+    <div class="feat"><div class="feat-ic">🎁</div><h4>Custom Orders</h4><p>Special occasion? We'll bake just for you.</p></div>
   </div>
 </section>
 
-<!-- ═══ FOOTER ═══ -->
+<!-- FOOTER -->
 <footer>
   <strong>Madhukunj Bakery</strong> · Mathura, Uttar Pradesh<br/>
   Freshly Baked Delights Every Day 🎂<br/>
-  <span style="font-size:0.75rem;opacity:0.6">© 2025 Madhukunj Bakery. All rights reserved.</span>
+  <span style="font-size:.74rem;opacity:.55">© 2025 Madhukunj Bakery. All rights reserved.</span>
 </footer>
 
-<!-- ═══ ADMIN MODAL ═══ -->
+<!-- ADMIN MODAL -->
 <div class="overlay" id="adminOverlay">
   <div class="modal">
-    <button class="modal-close" onclick="closeAdminModal()">✕</button>
+    <button class="modal-close" onclick="closeAdmin()">✕</button>
 
-    <!-- STEP 1: Login -->
-    <div id="adminLoginForm">
+    <!-- Login -->
+    <div id="adminLogin">
       <h2>🔐 Admin Login</h2>
-      <p class="sub">This panel is private. Enter your credentials to continue.</p>
-      <div class="form-group">
-        <label>Email</label>
-        <input type="email" id="adminEmail" placeholder="your@email.com"/>
-      </div>
-      <div class="form-group">
-        <label>Password</label>
-        <input type="password" id="adminPass" placeholder="••••••••"/>
-      </div>
-      <p class="error-msg" id="adminError">❌ Incorrect email or password.</p>
-      <button class="btn-full btn-brown" onclick="adminLogin()">Login</button>
+      <p class="sub">Private access. Owner only.</p>
+      <div class="fg"><label>Email</label><input type="email" id="aEmail" placeholder="your@email.com"/></div>
+      <div class="fg"><label>Password</label><input type="password" id="aPass" placeholder="••••••••"/></div>
+      <p class="err" id="aErr">❌ Incorrect email or password.</p>
+      <button class="btn-full btn-br" onclick="adminLogin()">Login</button>
     </div>
 
-    <!-- STEP 2: Admin Panel (shown after login) -->
+    <!-- Panel -->
     <div id="adminPanel" style="display:none">
       <h2>🎂 Add New Cake</h2>
-      <p class="sub">Upload a photo and fill in the details below.</p>
-
-      <div id="addCakeForm">
-        <div class="form-group">
-          <label>Cake Name</label>
-          <input type="text" id="cakeName" placeholder="e.g. Chocolate Truffle"/>
-        </div>
-        <div class="form-group">
-          <label>Category</label>
-          <select id="cakeCat">
-            <option value="cream">Cream Cake</option>
-            <option value="dry">Dry Cake</option>
-            <option value="musttry">Must Try</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Short Description</label>
-          <textarea id="cakeDesc" rows="2" placeholder="e.g. Rich chocolate layers with fresh cream..."></textarea>
-        </div>
-        <div class="form-group">
-          <label>Badge (optional)</label>
-          <input type="text" id="cakeBadge" placeholder="e.g. New · Bestseller · Seasonal"/>
-        </div>
-        <div class="form-group">
-          <label>Cake Photo</label>
-          <div class="upload-area" onclick="document.getElementById('imgInput').click()">
-            <div class="upload-icon">📷</div>
-            <p>Click to upload photo</p>
-            <p style="font-size:0.72rem;color:#ccc;margin-top:0.2rem">JPG or PNG</p>
-          </div>
-          <input type="file" id="imgInput" accept="image/*" style="display:none" onchange="previewImg(event)"/>
-          <img id="imgPreview" class="img-preview" alt="preview"/>
-        </div>
-        <button class="btn-full btn-brown" onclick="addCake()">Add to Menu ✨</button>
+      <p class="sub">Upload a photo and fill in the details.</p>
+      <div class="fg"><label>Cake Name</label><input type="text" id="cName" placeholder="e.g. Chocolate Truffle"/></div>
+      <div class="fg">
+        <label>Category</label>
+        <select id="cCat">
+          <option value="cream">Cream Cake</option>
+          <option value="dry">Dry Cake</option>
+          <option value="musttry">Must Try</option>
+        </select>
       </div>
-
-      <hr class="divider"/>
-      <h3 style="font-family:'Playfair Display',serif;color:var(--dark);margin-bottom:1rem;">Manage Cakes</h3>
-      <div id="adminList" style="display:flex;flex-direction:column;gap:0.6rem;max-height:220px;overflow-y:auto;"></div>
-
-      <hr class="divider"/>
-      <button class="btn-full btn-rose" onclick="adminLogout()">Logout</button>
+      <div class="fg"><label>Short Description</label><textarea id="cDesc" rows="2" placeholder="e.g. Rich chocolate layers with fresh cream..."></textarea></div>
+      <div class="fg"><label>Badge (optional)</label><input type="text" id="cBadge" placeholder="e.g. New · Bestseller · Seasonal"/></div>
+      <div class="fg">
+        <label>Cake Photo</label>
+        <div class="upload-area" onclick="document.getElementById('imgIn').click()">
+          <div class="upload-ic">📷</div>
+          <p>Click to upload photo</p>
+          <p style="font-size:.7rem;color:#ccc;margin-top:.2rem">JPG or PNG</p>
+        </div>
+        <input type="file" id="imgIn" accept="image/*" style="display:none" onchange="prevImg(event)"/>
+        <img id="imgPrev" class="img-prev" alt="preview"/>
+      </div>
+      <button class="btn-full btn-br" onclick="addCake()">Add to Menu ✨</button>
+      <hr class="div"/>
+      <h3 style="font-family:'Cormorant Garamond',serif;color:var(--dark);margin-bottom:.9rem">Manage Cakes</h3>
+      <div id="adminList" style="display:flex;flex-direction:column;gap:.55rem;max-height:220px;overflow-y:auto"></div>
+      <hr class="div"/>
+      <button class="btn-full btn-rs" onclick="adminLogout()">Logout</button>
     </div>
   </div>
 </div>
 
-<!-- ═══════════════════════════════
-     JAVASCRIPT
-═══════════════════════════════ -->
 <script>
-/* ── CONSTANTS ── */
-const GOOGLE_CLIENT_ID = '791916034850-nh90a6nvr7255etf96fl21j2ermk7h4q.apps.googleusercontent.com';
-const ADMIN_EMAIL_HASH  = '439b5dc5b956c4a53ebf7a765b14dc60eab8c1ff33e6f02a74c83f3b8e6c6920'; // yuvraajverma2117@gmail.com
-const ADMIN_PASS_HASH   = 'df3773f7836ed8017bf874347a61fb489b892f6af4ce49a7e147912e5b4bd485'; // Hloguysgudumudu
+/* ── COOKIE HELPERS ── */
+function setCk(n,v,d){const e=new Date();e.setTime(e.getTime()+d*864e5);document.cookie=`${n}=${encodeURIComponent(v)};expires=${e.toUTCString()};path=/;SameSite=Lax`}
+function getCk(n){const m=document.cookie.match(new RegExp('(?:^|; )'+n+'=([^;]*)'));return m?decodeURIComponent(m[1]):null}
 
-/* ── HASH HELPER ── */
-async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+function acceptCookies(){setCk('mk_consent','yes',365);document.getElementById('cookieBanner').classList.remove('show')}
+function declineCookies(){setCk('mk_consent','no',30);document.getElementById('cookieBanner').classList.remove('show')}
+
+/* ── SHA-256 ── */
+async function sha256(s){
+  const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));
+  return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');
 }
+// hashes of admin credentials (password never stored in plain text)
+const AE='3b08bdb15695fb6c15d3c263c1a9a4b5a9ffb281f23293b13c17dd1df7cebdc3';
+const AP='df3773f7836ed8017bf874347a61fb489b892f6af4ce49a7e147912e5b4bd485';
 
-/* ════════════════════════════
-   COOKIE HELPERS
-════════════════════════════ */
-function setCookie(name, val, days) {
-  const d = new Date();
-  d.setTime(d.getTime() + days*24*60*60*1000);
-  document.cookie = `${name}=${encodeURIComponent(val)};expires=${d.toUTCString()};path=/;SameSite=Lax`;
+/* ── LOGIN GATE ── */
+function doLogin(){
+  const name=document.getElementById('gName').value.trim();
+  const phone=document.getElementById('gPhone').value.trim().replace(/\D/g,'');
+  const err=document.getElementById('loginErr');
+  if(!name||phone.length<10){err.style.display='block';return}
+  err.style.display='none';
+  const u={name,phone};
+  if(getCk('mk_consent')!=='no')setCk('mk_user',JSON.stringify(u),30);
+  showUser(u);hideGate();
 }
-function getCookie(name) {
-  const match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
-  return match ? decodeURIComponent(match[1]) : null;
+function skipLogin(){hideGate()}
+function hideGate(){
+  const g=document.getElementById('loginGate');
+  g.style.opacity='0';g.style.transition='opacity .4s ease';
+  setTimeout(()=>g.style.display='none',420);
 }
-function deleteCookie(name) {
-  document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:00 UTC;path=/;';
+function showUser(u){
+  document.getElementById('navAvatar').textContent=u.name.charAt(0).toUpperCase();
+  document.getElementById('navName').textContent=u.name.split(' ')[0];
+  document.getElementById('navUserPill').style.display='flex';
 }
+document.getElementById('gPhone').addEventListener('keydown',e=>{if(e.key==='Enter')doLogin()});
 
-/* Cookie banner logic */
-function initCookieBanner() {
-  if (!getCookie('mk_cookie_consent')) {
-    setTimeout(() => document.getElementById('cookieBanner').classList.add('show'), 1200);
-  }
-}
-function acceptCookies() {
-  setCookie('mk_cookie_consent', 'accepted', 365);
-  document.getElementById('cookieBanner').classList.remove('show');
-}
-function declineCookies() {
-  setCookie('mk_cookie_consent', 'declined', 30);
-  document.getElementById('cookieBanner').classList.remove('show');
-}
-
-/* ════════════════════════════
-   LOGIN GATE
-════════════════════════════ */
-let currentUser = null;
-
-function initLoginGate() {
-  // Check if user already signed in via cookie
-  const savedUser = getCookie('mk_user');
-  if (savedUser) {
-    try {
-      currentUser = JSON.parse(savedUser);
-      showNavUser(currentUser);
-      hideLo­ginGate();
-      return;
-    } catch(e) {}
-  }
-
-  // Init Google One Tap
-  google.accounts.id.initialize({
-    client_id: GOOGLE_CLIENT_ID,
-    callback: handleGoogleSignIn,
-    auto_select: false,
-  });
-
-  google.accounts.id.renderButton(
-    document.getElementById('googleSignInDiv'),
-    {
-      theme: 'outline',
-      size: 'large',
-      shape: 'pill',
-      text: 'continue_with',
-      width: 300,
-    }
-  );
-}
-
-function handleGoogleSignIn(response) {
-  // Decode JWT payload
-  const payload = JSON.parse(atob(response.credential.split('.')[1]));
-  currentUser = {
-    name:    payload.name,
-    email:   payload.email,
-    picture: payload.picture,
-  };
-
-  // Show user bar in login gate
-  document.getElementById('loginUserImg').src   = currentUser.picture;
-  document.getElementById('loginUserName').textContent  = currentUser.name;
-  document.getElementById('loginUserEmail').textContent = currentUser.email;
-  document.getElementById('loginUserBar').style.display = 'flex';
-  document.getElementById('googleSignInDiv').style.display = 'none';
-  document.getElementById('btnEnter').style.display = 'block';
-}
-
-function enterSite() {
-  if (!currentUser) return;
-  // Save to cookie (30 days)
-  if (getCookie('mk_cookie_consent') !== 'declined') {
-    setCookie('mk_user', JSON.stringify(currentUser), 30);
-  }
-  showNavUser(currentUser);
-  hideLoginGate();
-}
-
-function skipLogin() {
-  hideLoginGate();
-}
-
-function hideLoginGate() {
-  const gate = document.getElementById('loginGate');
-  gate.style.opacity = '0';
-  gate.style.transition = 'opacity 0.4s ease';
-  setTimeout(() => gate.style.display = 'none', 400);
-}
-
-// Fix: remove the stray soft hyphen from hideLo­ginGate reference above
-function showNavUser(user) {
-  document.getElementById('navUserImg').src = user.picture || '';
-  document.getElementById('navUserName').textContent = user.name.split(' ')[0];
-  document.getElementById('navUserPill').style.display = 'flex';
-}
-
-/* ════════════════════════════
-   ADMIN MODAL
-════════════════════════════ */
-let adminLoggedIn = false;
-
-function openAdminModal() {
+/* ── ADMIN ── */
+let adminIn=false;
+function openAdmin(){
   document.getElementById('adminOverlay').classList.add('open');
-  if (adminLoggedIn) {
-    document.getElementById('adminLoginForm').style.display = 'none';
-    document.getElementById('adminPanel').style.display = 'block';
+  document.getElementById('adminLogin').style.display=adminIn?'none':'block';
+  document.getElementById('adminPanel').style.display=adminIn?'block':'none';
+  if(adminIn)renderAdminList();
+}
+function closeAdmin(){document.getElementById('adminOverlay').classList.remove('open')}
+async function adminLogin(){
+  const email=document.getElementById('aEmail').value.trim();
+  const pass=document.getElementById('aPass').value;
+  const err=document.getElementById('aErr');
+  const[eh,ph]=await Promise.all([sha256(email),sha256(pass)]);
+  if(eh===AE&&ph===AP){
+    adminIn=true;err.classList.remove('show');
+    document.getElementById('adminLogin').style.display='none';
+    document.getElementById('adminPanel').style.display='block';
     renderAdminList();
-  } else {
-    document.getElementById('adminLoginForm').style.display = 'block';
-    document.getElementById('adminPanel').style.display = 'none';
-  }
+  }else{err.classList.add('show');document.getElementById('aPass').value=''}
 }
+function adminLogout(){adminIn=false;closeAdmin()}
+document.getElementById('aPass').addEventListener('keydown',e=>{if(e.key==='Enter')adminLogin()});
+document.getElementById('adminOverlay').addEventListener('click',function(e){if(e.target===this)closeAdmin()});
 
-function closeAdminModal() {
-  document.getElementById('adminOverlay').classList.remove('open');
-}
-
-async function adminLogin() {
-  const email = document.getElementById('adminEmail').value.trim();
-  const pass  = document.getElementById('adminPass').value;
-  const errEl = document.getElementById('adminError');
-
-  const [eHash, pHash] = await Promise.all([sha256(email), sha256(pass)]);
-
-  if (eHash === ADMIN_EMAIL_HASH && pHash === ADMIN_PASS_HASH) {
-    adminLoggedIn = true;
-    errEl.classList.remove('show');
-    document.getElementById('adminLoginForm').style.display = 'none';
-    document.getElementById('adminPanel').style.display = 'block';
-    renderAdminList();
-  } else {
-    errEl.classList.add('show');
-    document.getElementById('adminPass').value = '';
-  }
-}
-
-document.getElementById('adminPass').addEventListener('keydown', e => {
-  if (e.key === 'Enter') adminLogin();
-});
-
-function adminLogout() {
-  adminLoggedIn = false;
-  document.getElementById('adminEmail').value = '';
-  document.getElementById('adminPass').value  = '';
-  closeAdminModal();
-}
-
-document.getElementById('adminOverlay').addEventListener('click', function(e) {
-  if (e.target === this) closeAdminModal();
-});
-
-/* ════════════════════════════
-   CAKE DATA
-════════════════════════════ */
-const defaultCakes = [
-  { id:1,  name:'Chocolate Cake',    cat:'cream',    desc:'Rich velvety layers with smooth chocolate cream frosting.',        img:'', badge:'Bestseller' },
-  { id:2,  name:'Pineapple Cake',    cat:'cream',    desc:'Light sponge with fresh pineapple and whipped cream.',             img:'', badge:'' },
-  { id:3,  name:'Strawberry Cake',   cat:'cream',    desc:'Sweet strawberry filling layered with fluffy vanilla cream.',      img:'', badge:'' },
-  { id:4,  name:'Mango Cake',        cat:'cream',    desc:'Tropical mango goodness — a seasonal summer favourite.',           img:'', badge:'Seasonal' },
-  { id:5,  name:'Butterscotch Cake', cat:'cream',    desc:'Caramel butterscotch cream with crunchy praline topping.',         img:'', badge:'' },
-  { id:6,  name:'Atta Jaggery Cake', cat:'dry',      desc:'Wholesome whole wheat cake sweetened naturally with jaggery.',     img:'', badge:'Healthy' },
-  { id:7,  name:'Mawa Cake',         cat:'dry',      desc:'Classic Indian mawa cake — dense, fragrant, and divine.',          img:'', badge:'' },
-  { id:8,  name:'Dry Fruit Cake',    cat:'dry',      desc:'Loaded with premium dry fruits and warm aromatic spices.',         img:'', badge:'' },
-  { id:9,  name:'Tea-Time Cake',     cat:'dry',      desc:'Light and buttery — the perfect companion for your chai.',         img:'', badge:'' },
-  { id:10, name:'Brownie',           cat:'musttry',  desc:'Fudgy, gooey chocolate brownies with a crinkle top.',             img:'', badge:'Must Try' },
-  { id:11, name:'Jar Cake',          cat:'musttry',  desc:'Layers of cake and cream packed into a cute little jar.',          img:'', badge:'Trending' },
-  { id:12, name:'Bowl Cake',         cat:'musttry',  desc:'A generous bowl of layered cake — made to be shared.',             img:'', badge:'' },
-  { id:13, name:'Donuts',            cat:'musttry',  desc:'Fluffy glazed donuts in a variety of fun flavours.',              img:'', badge:'New' },
+/* ── CAKE DATA ── */
+const CAT={cream:'Cream Cake',dry:'Dry Cake',musttry:'Must Try'};
+const DEFAULTS=[
+  {id:1, name:'Chocolate Cake',    cat:'cream',   desc:'Rich velvety layers with smooth chocolate cream frosting.',     img:'',badge:'Bestseller'},
+  {id:2, name:'Pineapple Cake',    cat:'cream',   desc:'Light sponge with fresh pineapple and whipped cream.',          img:'',badge:''},
+  {id:3, name:'Strawberry Cake',   cat:'cream',   desc:'Sweet strawberry filling layered with fluffy vanilla cream.',   img:'',badge:''},
+  {id:4, name:'Mango Cake',        cat:'cream',   desc:'Tropical mango goodness — a seasonal summer favourite.',        img:'',badge:'Seasonal'},
+  {id:5, name:'Butterscotch Cake', cat:'cream',   desc:'Caramel butterscotch cream with crunchy praline topping.',      img:'',badge:''},
+  {id:6, name:'Atta Jaggery Cake', cat:'dry',     desc:'Wholesome wheat cake sweetened naturally with jaggery.',        img:'',badge:'Healthy'},
+  {id:7, name:'Mawa Cake',         cat:'dry',     desc:'Classic Indian mawa cake — dense, fragrant, and divine.',       img:'',badge:''},
+  {id:8, name:'Dry Fruit Cake',    cat:'dry',     desc:'Loaded with premium dry fruits and warm aromatic spices.',      img:'',badge:''},
+  {id:9, name:'Tea-Time Cake',     cat:'dry',     desc:'Light and buttery — the perfect companion for your chai.',      img:'',badge:''},
+  {id:10,name:'Brownie',           cat:'musttry', desc:'Fudgy, gooey chocolate brownies with a crinkle top.',          img:'',badge:'Must Try'},
+  {id:11,name:'Jar Cake',          cat:'musttry', desc:'Layers of cake and cream packed into a cute little jar.',       img:'',badge:'Trending'},
+  {id:12,name:'Bowl Cake',         cat:'musttry', desc:'A generous bowl of layered cake — made to be shared.',          img:'',badge:''},
+  {id:13,name:'Donuts',            cat:'musttry', desc:'Fluffy glazed donuts in a variety of fun flavours.',            img:'',badge:'New'},
 ];
+function loadCakes(){try{const s=localStorage.getItem('mk_cakes_v3');return s?JSON.parse(s):DEFAULTS}catch{return DEFAULTS}}
+function saveCakes(a){try{localStorage.setItem('mk_cakes_v3',JSON.stringify(a))}catch{}}
+let cakes=loadCakes(),activeFilter='all';
 
-function loadCakes() {
-  try {
-    const s = localStorage.getItem('mk_cakes_v2');
-    return s ? JSON.parse(s) : defaultCakes;
-  } catch(e) { return defaultCakes; }
-}
-function saveCakes(arr) {
-  try { localStorage.setItem('mk_cakes_v2', JSON.stringify(arr)); } catch(e) {}
-}
-let cakes = loadCakes();
-let activeFilter = 'all';
-
-/* ════════════════════════════
-   RENDER MENU
-════════════════════════════ */
-const catLabel = { cream:'Cream Cake', dry:'Dry Cake', musttry:'Must Try' };
-
-function renderGrid(filter) {
-  const grid = document.getElementById('cakeGrid');
-  const list = filter === 'all' ? cakes : cakes.filter(c => c.cat === filter);
-  grid.innerHTML = '';
-  list.forEach((cake, i) => {
-    const card = document.createElement('div');
-    card.className = 'cake-card';
-    card.style.animationDelay = (i * 0.06) + 's';
-    card.innerHTML = `
+/* ── RENDER ── */
+function renderGrid(f){
+  const grid=document.getElementById('cakeGrid');
+  const list=f==='all'?cakes:cakes.filter(c=>c.cat===f);
+  grid.innerHTML='';
+  list.forEach((c,i)=>{
+    const card=document.createElement('div');
+    card.className='cake-card';card.style.animationDelay=(i*.06)+'s';
+    card.innerHTML=`
       <div class="cake-img-wrap">
-        ${cake.badge ? `<div class="cake-badge">${cake.badge}</div>` : ''}
-        ${cake.img
-          ? `<img src="${cake.img}" alt="${cake.name}" loading="lazy"/>`
-          : `<div class="cake-placeholder"><span>🎂</span><p>Photo coming soon</p></div>`
-        }
+        ${c.badge?`<div class="cake-badge">${c.badge}</div>`:''}
+        ${c.img?`<img src="${c.img}" alt="${c.name}" loading="lazy"/>`:`<div class="cake-ph"><span>🎂</span><p>Photo coming soon</p></div>`}
       </div>
       <div class="cake-info">
-        <div class="cake-name">${cake.name}</div>
-        <div class="cake-cat">${catLabel[cake.cat] || ''}</div>
-        <div class="cake-desc">${cake.desc}</div>
+        <div class="cake-name">${c.name}</div>
+        <div class="cake-cat">${CAT[c.cat]||''}</div>
+        <div class="cake-desc">${c.desc}</div>
       </div>`;
     grid.appendChild(card);
   });
 }
-
-function filterCakes(cat, btn) {
-  activeFilter = cat;
-  document.querySelectorAll('.cat-tab').forEach(t => t.classList.remove('active'));
-  btn.classList.add('active');
-  renderGrid(cat);
+function filterCakes(f,btn){
+  activeFilter=f;
+  document.querySelectorAll('.cat-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');renderGrid(f);
 }
 
-/* ════════════════════════════
-   ADMIN: ADD & DELETE CAKES
-════════════════════════════ */
-function previewImg(e) {
-  const file = e.target.files[0];
-  if (!file) return;
-  const reader = new FileReader();
-  reader.onload = ev => {
-    const p = document.getElementById('imgPreview');
-    p.src = ev.target.result;
-    p.style.display = 'block';
-  };
-  reader.readAsDataURL(file);
+/* ── ADMIN CAKE OPS ── */
+function prevImg(e){
+  const file=e.target.files[0];if(!file)return;
+  const r=new FileReader();
+  r.onload=ev=>{const p=document.getElementById('imgPrev');p.src=ev.target.result;p.style.display='block'};
+  r.readAsDataURL(file);
 }
-
-function addCake() {
-  const name  = document.getElementById('cakeName').value.trim();
-  const cat   = document.getElementById('cakeCat').value;
-  const desc  = document.getElementById('cakeDesc').value.trim();
-  const badge = document.getElementById('cakeBadge').value.trim();
-  const prev  = document.getElementById('imgPreview');
-  const img   = prev.style.display !== 'none' ? prev.src : '';
-
-  if (!name) { alert('Please enter a cake name.'); return; }
-
-  cakes.push({ id: Date.now(), name, cat, desc: desc || 'Freshly baked daily.', img, badge: badge || 'New' });
-  saveCakes(cakes);
-  renderGrid(activeFilter);
-  renderAdminList();
-
-  // reset form
-  ['cakeName','cakeDesc','cakeBadge'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('imgInput').value = '';
-  prev.style.display = 'none';
-
-  alert('✅ ' + name + ' added to the menu!');
+function addCake(){
+  const name=document.getElementById('cName').value.trim();
+  if(!name){alert('Please enter a cake name.');return}
+  const prev=document.getElementById('imgPrev');
+  cakes.push({
+    id:Date.now(),name,
+    cat:document.getElementById('cCat').value,
+    desc:document.getElementById('cDesc').value.trim()||'Freshly baked daily.',
+    img:prev.style.display!=='none'?prev.src:'',
+    badge:document.getElementById('cBadge').value.trim()||'New'
+  });
+  saveCakes(cakes);renderGrid(activeFilter);renderAdminList();
+  ['cName','cDesc','cBadge'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('imgIn').value='';prev.style.display='none';
+  alert('✅ '+name+' added to the menu!');
 }
-
-function deleteCake(id) {
-  if (!confirm('Remove this cake from the menu?')) return;
-  cakes = cakes.filter(c => c.id !== id);
-  saveCakes(cakes);
-  renderGrid(activeFilter);
-  renderAdminList();
+function deleteCake(id){
+  if(!confirm('Remove this cake?'))return;
+  cakes=cakes.filter(c=>c.id!==id);
+  saveCakes(cakes);renderGrid(activeFilter);renderAdminList();
 }
-
-function renderAdminList() {
-  const el = document.getElementById('adminList');
-  el.innerHTML = '';
-  cakes.forEach(cake => {
-    const row = document.createElement('div');
-    row.className = 'admin-list-item';
-    row.innerHTML = `
-      <span>
-        <strong>${cake.name}</strong>
-        <span class="cat-pill"> · ${catLabel[cake.cat] || cake.cat}</span>
-      </span>
-      <button class="btn-del" onclick="deleteCake(${cake.id})">Remove</button>`;
+function renderAdminList(){
+  const el=document.getElementById('adminList');el.innerHTML='';
+  cakes.forEach(c=>{
+    const row=document.createElement('div');row.className='adm-item';
+    row.innerHTML=`<span><strong>${c.name}</strong> <span class="cpill">· ${CAT[c.cat]||c.cat}</span></span><button class="btn-del" onclick="deleteCake(${c.id})">Remove</button>`;
     el.appendChild(row);
   });
 }
 
-/* ════════════════════════════
-   INIT
-════════════════════════════ */
-window.addEventListener('load', () => {
-  initCookieBanner();
+/* ── INIT ── */
+window.addEventListener('load',()=>{
+  if(!getCk('mk_consent'))setTimeout(()=>document.getElementById('cookieBanner').classList.add('show'),1500);
+  try{
+    const saved=getCk('mk_user');
+    if(saved){const u=JSON.parse(saved);showUser(u);document.getElementById('loginGate').style.display='none';}
+  }catch{}
   renderGrid('all');
-
-  // Wait for Google script then init login
-  const waitGoogle = setInterval(() => {
-    if (window.google && google.accounts) {
-      clearInterval(waitGoogle);
-      initLoginGate();
-    }
-  }, 100);
 });
-
-// Generate admin email hash on first run (for reference — already hardcoded above)
-// sha256('yuvraajverma2117@gmail.com').then(h => console.log('email hash:', h));
 </script>
 </body>
 </html>
