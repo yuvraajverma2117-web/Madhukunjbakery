@@ -297,9 +297,8 @@ function declineCookies(){setCk('mk_consent','no',30);document.getElementById('c
 
 /* SHA-256 */
 async function sha256(s){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('')}
-const AE='3b08bdb15695fb6c15d3c263c1a9a4b5a9ffb281f23293b13c17dd1df7cebdc3';
-const AP='df3773f7836ed8017bf874347a61fb489b892f6af4ce49a7e147912e5b4bd485';
-
+const AE='3e812011ecf284c709db44ca08958f9589fd92fe305598c355f4938482268fcb';
+const AP='e5509646b84f5671f65530221313f219ca2e90268722a24a57daba3d5e28d98c';
 /* GOOGLE SIGN-IN — new GSI library */
 const G_CLIENT_ID='791916034850-nh90a6nvr7255etf96fl21j2ermk7h4q.apps.googleusercontent.com';
 
