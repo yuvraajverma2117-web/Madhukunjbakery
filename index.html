@@ -151,6 +151,45 @@ hr.div{border:none;border-top:1px solid #eee;margin:1.4rem 0}
   .modal{padding:2rem 1.4rem}
   .login-box{padding:2rem 1.4rem}
 }
+  @media (prefers-color-scheme: dark) {
+  :root {
+    --cream: #1a1008;
+    --warm: #231508;
+    --brown: #e0a060;
+    --dark: #f5e6cc;
+    --gold: #f0a84a;
+    --rose: #e87070;
+    --blush: #5a3520;
+    --muted: #c8a07a;
+    --shadow: rgba(0,0,0,.30);
+    --shadow-lg: rgba(0,0,0,.50);
+  }
+
+  nav {
+    background: rgba(20,10,4,.92);
+    border-bottom-color: rgba(201,132,58,.25);
+  }
+
+  .cake-card { background: #2a1a0a; }
+  .inp, .fg input, .fg select, .fg textarea {
+    background: #2a1a0a;
+    border-color: #5a3520;
+    color: #f5e6cc;
+  }
+  .modal { background: #2a1a0a; }
+  .login-box { background: #2a1a0a; }
+  .adm-item { background: #331f0d; }
+
+  #loginGate {
+    background: radial-gradient(ellipse at 50% 55%, #2a1508, #1a0d04);
+  }
+
+  .hero {
+    background: radial-gradient(ellipse at 62% 48%, #2a1508, #1a0d04 55%, #110800);
+  }
+
+  footer { background: #0f0804; }
+}
 </style>
 </head>
 <body>
