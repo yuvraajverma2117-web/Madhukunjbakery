@@ -760,8 +760,8 @@ async function sendOtp(){
     try {
       // Setup invisible recaptcha
       if(!window._recaptchaVerifier){
-        window._recaptchaVerifier = new window._RecaptchaVerifier(window._auth, 'btnSendOtp', {
-          'size': 'invisible',
+       window._recaptchaVerifier = new window._RecaptchaVerifier(
+  window._auth, 'recaptcha-container', { 'size': 'invisible' ,
           'callback': () => {}
         });
       }
