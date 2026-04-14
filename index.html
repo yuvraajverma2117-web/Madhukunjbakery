@@ -680,30 +680,29 @@ window._sendPasswordReset = (email) => sendPasswordResetEmail(auth, email);
 window._updateProfile = (user, data) => updateProfile(user, data);
 
 // Google sign-in — use redirect on mobile, popup on desktop
-window._signInWithGoogle = async () => {
-  if (isMobile) {
-    await signInWithRedirect(auth, googleProvider);
-    return null; // will resolve via redirect result
-  } else {
-    const result = await signInWithPopup(auth, googleProvider);
-    return result.user;
-  }
-};
+function handleGoogleUser(user){
+  const u = {
+    name: user.displayName || 'User',
+    email: user.email || '',
+    phone: user.phoneNumber || '',
+    photo: user.photoURL || '',
+    via: 'Google',
+    joinedAt: new Date().toISOString(),
+    uid: user.uid,
+    verified: true
+  };
+
+  completeLogin(u);
+}
 
 // Handle redirect result on page load (for mobile Google sign-in)
 getRedirectResult(auth).then((result) => {
   if (result && result.user) {
-    const user = result.user;
-    const u = {
-      name: user.displayName || 'User',
-      email: user.email || '',
-      phone: user.phoneNumber || '',
-      photo: user.photoURL || '',
-      via: 'Google',
-      joinedAt: new Date().toISOString(),
-      uid: user.uid,
-      verified: true
-    };
+    handleGoogleUser(result.user);
+  }
+}).catch((e) => {
+  console.error(e);
+});
     window._pendingRedirectUser = u;
   }
 }).catch((e) => {
@@ -904,10 +903,9 @@ async function signInWithGoogle(){
   try {
     const user=await window._signInWithGoogle();
     if(user){
-      // Desktop popup flow
-      const u={name:user.displayName||'User',email:user.email||'',phone:user.phoneNumber||'',photo:user.photoURL||'',via:'Google',joinedAt:new Date().toISOString(),uid:user.uid,verified:true};
-      clearFailedAttempts();completeLogin(u);
-    } else {
+  clearFailedAttempts();
+  handleGoogleUser(user);
+} else {
       // Mobile redirect flow — page will reload, handled by onAuthStateChanged
       showToast('Redirecting to Google…');
     }
