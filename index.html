@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madhukunj — Sweets · Namkeen · Snacks | Bajna, Mathura</title>
+<meta name="description" content="Madhukunj is a family-run sweets, namkeen and snacks shop in Bajna, Mathura — handcrafted mithai and home-style food, made fresh daily. Order by phone or WhatsApp.">
+<meta name="theme-color" content="#EF231A">
+
+<meta property="og:title" content="Madhukunj — Delight in Every Bite">
+<meta property="og:description" content="Family-run sweets, namkeen and snacks in Bajna, Mathura. Handcrafted daily. Order by phone or WhatsApp.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_IN">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='32,3 58,18 58,46 32,61 6,46 6,18' fill='%23F4A823' stroke='%23DC8A12' stroke-width='3'/%3E%3Cpolygon points='32,16 46,24 46,40 32,48 18,40 18,24' fill='%23EF231A'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Mukta:wght@400;500;600;700&family=Baloo+2:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --scarlet:#EF231A;
+    --scarlet-deep:#C2140C;
+    --peach:#FBD2A4;
+    --white:#FFFFFF;
+    --honey:#F4A823;
+    --honey-deep:#DC8A12;
+    --ink:#2B1810;
+    --brown:#6E5747;
+
+    --font-display:'Fraunces', serif;
+    --font-body:'Mukta', sans-serif;
+    --font-mark:'Baloo 2', sans-serif;
+
+    --max:1120px;
+    --radius:18px;
+    --shadow:0 14px 34px -14px rgba(43,24,16,.28);
+    --ease:cubic-bezier(.22,.8,.32,1);
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:inherit;}
+  h1,h2,h3{font-family:var(--font-display);margin:0;line-height:1.08;}
+  p{margin:0;}
+  ul{margin:0;padding:0;}
+  section{padding:5.5rem 1.5rem;scroll-margin-top:84px;}
+  .wrap{max-width:var(--max);margin:0 auto;}
+
+  :focus-visible{outline:3px solid var(--honey-deep);outline-offset:3px;border-radius:4px;}
+
+  .eyebrow{
+    font-family:var(--font-body);
+    font-weight:700;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-size:.78rem;
+  }
+
+  /* ---------- Hex bits ---------- */
+  .hex{
+    clip-path:polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+  }
+  .hex-cluster{
+    position:relative;
+    width:38px;height:38px;
+    flex:none;
+  }
+  .hex-cluster span{
+    position:absolute;
+    width:20px;height:22px;
+    background:linear-gradient(155deg,var(--honey),var(--honey-deep));
+  }
+  .hex-cluster span:nth-child(1){clip-path:polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%); top:0; left:9px;}
+  .hex-cluster span:nth-child(2){clip-path:polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%); top:13px; left:-2px; background:linear-gradient(155deg,var(--scarlet),var(--scarlet-deep));}
+  .hex-cluster span:nth-child(3){clip-path:polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%); top:13px; left:20px;}
+
+  .hex-list{list-style:none;}
+  .hex-list li{
+    position:relative;
+    padding-left:1.6rem;
+    margin-bottom:.55rem;
+  }
+  .hex-list li::before{
+    content:"";
+    position:absolute;
+    left:0; top:.42em;
+    width:.7rem; height:.78rem;
+    background:linear-gradient(155deg,var(--honey),var(--scarlet));
+    clip-path:polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+  }
+
+  .honeycomb-texture{
+    position:absolute; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='146' viewBox='0 0 84 146'%3E%3Cg fill='none' stroke='%23FFFFFF' stroke-opacity='0.14' stroke-width='1.5'%3E%3Cpolygon points='42,2 79,24 79,68 42,90 5,68 5,24'/%3E%3Cpolygon points='0,90 37,112 37,146 0,168 -37,146 -37,112'/%3E%3Cpolygon points='84,90 121,112 121,146 84,168 47,146 47,112'/%3E%3C/g%3E%3C/svg%3E");
+    background-size:84px 146px;
+    opacity:.55;
+    pointer-events:none;
+  }
+
+  /* ---------- Header ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid rgba(43,24,16,.08);
+  }
+  .header-row{
+    max-width:var(--max); margin:0 auto;
+    display:flex; align-items:center; gap:.9rem;
+    padding:.7rem 1.5rem;
+  }
+  .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; margin-right:auto;}
+  .brand-text{display:flex; flex-direction:column; line-height:1.05;}
+  .brand-mark{font-family:var(--font-mark); font-weight:700; font-size:1.5rem; color:var(--scarlet-deep);}
+  .brand-sub{font-size:.66rem; letter-spacing:.08em; color:var(--brown); text-transform:uppercase; font-weight:600;}
+
+  .main-nav{display:flex; align-items:center; gap:1.7rem;}
+  .main-nav a{
+    text-decoration:none; font-weight:600; font-size:.95rem; color:var(--ink);
+    position:relative; padding:.2rem 0;
+  }
+  .main-nav a::after{
+    content:""; position:absolute; left:0; right:100%; bottom:-2px; height:2px;
+    background:var(--scarlet); transition:right .25s var(--ease);
+  }
+  .main-nav a:hover::after, .main-nav a:focus-visible::after{right:0;}
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    font-family:var(--font-body); font-weight:700; font-size:.95rem;
+    padding:.75rem 1.5rem; border-radius:999px; text-decoration:none;
+    border:2px solid transparent; cursor:pointer; transition:transform .18s var(--ease), background .2s, box-shadow .2s;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--scarlet); color:var(--white); box-shadow:0 10px 22px -10px rgba(194,20,12,.55);}
+  .btn-primary:hover{background:var(--scarlet-deep);}
+  .btn-ghost{background:transparent; border-color:rgba(43,24,16,.18); color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--scarlet); color:var(--scarlet-deep);}
+  .btn-light{background:var(--white); color:var(--scarlet-deep);}
+  .btn-light:hover{background:var(--peach);}
+  .btn-outline-light{background:transparent; border-color:rgba(255,255,255,.55); color:var(--white);}
+  .btn-outline-light:hover{border-color:var(--white); background:rgba(255,255,255,.12);}
+
+  .header-cta{display:flex;}
+  .nav-toggle{
+    display:none; background:none; border:none; cursor:pointer; padding:.4rem;
+    flex-direction:column; gap:5px;
+  }
+  .nav-toggle span{width:24px; height:2.5px; background:var(--ink); border-radius:2px; transition:transform .25s, opacity .25s;}
+
+  @media (max-width: 860px){
+    .main-nav{
+      position:fixed; inset:64px 0 0 0; background:var(--white);
+      flex-direction:column; align-items:flex-start; padding:2rem 1.8rem; gap:1.4rem;
+      transform:translateX(100%); transition:transform .3s var(--ease);
+      overflow-y:auto;
+    }
+    .main-nav.open{transform:translateX(0);}
+    .main-nav a{font-size:1.15rem;}
+    .header-cta{display:none;}
+    .nav-toggle{display:flex;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:linear-gradient(160deg, var(--scarlet) 0%, var(--scarlet-deep) 100%);
+    color:var(--white);
+    padding:5.5rem 1.5rem 4.5rem;
+    text-align:center;
+  }
+  .hero-content{position:relative; z-index:2; max-width:780px; margin:0 auto;}
+  .hero .eyebrow{color:var(--peach); display:inline-block; margin-bottom:1.4rem;}
+  .hero-mark{
+    font-family:var(--font-mark); font-weight:700;
+    font-size:clamp(3.6rem, 13vw, 8rem);
+    color:var(--white);
+    margin:0 0 .3rem;
+    text-shadow:0 12px 30px rgba(0,0,0,.18);
+  }
+  .hero-name{
+    font-family:var(--font-body); font-weight:700;
+    letter-spacing:.32em; text-transform:uppercase;
+    font-size:clamp(.85rem, 2vw, 1.05rem);
+    color:var(--peach);
+    margin-bottom:1.3rem;
+  }
+  .hero-tagline{
+    font-family:var(--font-display); font-style:italic; font-weight:500;
+    font-size:clamp(1.3rem, 3vw, 1.75rem);
+    margin-bottom:1rem;
+  }
+  .hero-copy{
+    max-width:520px; margin:0 auto 2.2rem;
+    color:rgba(255,255,255,.92); font-size:1.05rem;
+  }
+  .hero-actions{display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:2.6rem;}
+  .trust-chips{display:flex; gap:.7rem; justify-content:center; flex-wrap:wrap;}
+  .chip{
+    font-size:.82rem; font-weight:600; padding:.45rem 1rem; border-radius:999px;
+    background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.25);
+    backdrop-filter:blur(2px);
+  }
+
+  /* ---------- Story ---------- */
+  .story{background:var(--white);}
+  .story-grid{display:grid; gap:3rem; grid-template-columns:1.1fr 1fr; align-items:start;}
+  .story-text h2{font-size:clamp(2rem,4vw,2.7rem); color:var(--scarlet-deep); margin-bottom:1.1rem;}
+  .story-text p{color:var(--brown); margin-bottom:1.1rem; font-size:1.05rem;}
+  .story-text p:last-of-type{margin-bottom:0;}
+
+  .value-cards{display:grid; gap:1.1rem;}
+  .value-card{
+    display:flex; gap:1rem; align-items:flex-start;
+    background:var(--peach); border-radius:var(--radius);
+    padding:1.3rem 1.4rem;
+  }
+  .value-card h3{font-size:1.15rem; margin-bottom:.3rem; color:var(--ink);}
+  .value-card p{color:var(--brown); font-size:.92rem;}
+
+  @media (max-width:780px){
+    .story-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Menu ---------- */
+  .menu{background:linear-gradient(180deg, var(--white) 0%, #FFF7EE 100%);}
+  .section-head{text-align:center; max-width:620px; margin:0 auto 3rem;}
+  .section-head .eyebrow{color:var(--scarlet);}
+  .section-head h2{font-size:clamp(2rem,4vw,2.7rem); color:var(--ink); margin-top:.5rem;}
+  .menu-note{
+    text-align:center; max-width:480px; margin:3rem auto 0;
+    font-style:italic; color:var(--brown); font-size:.95rem;
+    padding-top:1.6rem; border-top:1px dashed rgba(43,24,16,.2);
+  }
+
+  .menu-grid{display:grid; gap:1.8rem; grid-template-columns:repeat(3, 1fr);}
+  .menu-card{
+    background:var(--white); border-radius:var(--radius);
+    padding:1.8rem 1.6rem; box-shadow:var(--shadow);
+    border-top:4px solid var(--honey);
+  }
+  .menu-card:nth-child(2){border-top-color:var(--scarlet);}
+  .menu-card:nth-child(3){border-top-color:var(--honey-deep);}
+  .menu-card h3{font-size:1.4rem; color:var(--scarlet-deep); margin-bottom:1rem;}
+  .menu-card .hex-list li{font-size:.97rem;}
+  .menu-card .hex-list strong{display:block; color:var(--ink); font-weight:700;}
+  .menu-card .hex-list span{color:var(--brown); font-size:.88rem;}
+
+  @media (max-width:900px){
+    .menu-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery{background:var(--white);}
+  .hex-gallery{
+    display:flex; flex-wrap:wrap; justify-content:center;
+    gap:1.1rem 1.3rem; max-width:760px; margin:0 auto;
+  }
+  .hex-figure{
+    width:200px; text-align:center;
+  }
+  .hex-figure:nth-child(even){
+    margin-top:3.2rem;
+  }
+  .hex-tile{
+    width:200px; height:230px;
+    clip-path:polygon(50% 0%, 93.3% 25%, 93.3% 75%, 50% 100%, 6.7% 75%, 6.7% 25%);
+    background-image:
+      linear-gradient(155deg, rgba(251,210,164,.0), rgba(43,24,16,.18)),
+      var(--img, none),
+      linear-gradient(155deg, var(--peach), var(--honey));
+    background-size:cover; background-position:center;
+    transition:transform .3s var(--ease);
+    box-shadow:var(--shadow);
+  }
+  .hex-figure:hover .hex-tile{transform:translateY(-6px) scale(1.02);}
+  .hex-figure figcaption{
+    margin-top:.7rem; font-weight:600; font-size:.92rem; color:var(--brown);
+  }
+
+  @media (max-width:760px){
+    .hex-figure, .hex-tile{width:150px; height:173px;}
+    .hex-figure:nth-child(even){margin-top:2.4rem;}
+  }
+  @media (max-width:480px){
+    .hex-figure:nth-child(even){margin-top:0;}
+    .hex-figure, .hex-tile{width:140px;height:161px;}
+  }
+
+  /* ---------- Visit ---------- */
+  .visit{
+    position:relative; overflow:hidden;
+    background:linear-gradient(155deg, var(--peach), #FBE2BE);
+  }
+  .visit .wrap{position:relative; z-index:2;}
+  .visit .honeycomb-texture{opacity:.4; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='146' viewBox='0 0 84 146'%3E%3Cg fill='none' stroke='%23EF231A' stroke-opacity='0.10' stroke-width='1.5'%3E%3Cpolygon points='42,2 79,24 79,68 42,90 5,68 5,24'/%3E%3Cpolygon points='0,90 37,112 37,146 0,168 -37,146 -37,112'/%3E%3Cpolygon points='84,90 121,112 121,146 84,168 47,146 47,112'/%3E%3C/g%3E%3C/svg%3E");}
+
+  .visit-grid{display:grid; gap:2.5rem; grid-template-columns:1fr 1fr; align-items:start;}
+  .visit-card{
+    background:var(--white); border-radius:var(--radius); padding:2.2rem;
+    box-shadow:var(--shadow);
+  }
+  .visit-card h3{font-size:1.3rem; color:var(--scarlet-deep); margin-bottom:1.1rem;}
+  .visit-row{display:flex; gap:.8rem; margin-bottom:1rem;}
+  .visit-row strong{display:block; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; color:var(--brown);}
+  .visit-row p, .visit-row a{font-size:1rem; font-weight:600; text-decoration:none;}
+  .visit-actions{display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.6rem;}
+  .maps-link{
+    display:inline-flex; align-items:center; gap:.4rem; margin-top:1.4rem;
+    font-weight:700; color:var(--scarlet-deep); text-decoration:underline;
+  }
+
+  @media (max-width:780px){
+    .visit-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Footer ---------- */
+  .site-footer{
+    background:var(--ink); color:rgba(255,255,255,.82);
+    padding:3.5rem 1.5rem 6.5rem;
+  }
+  .footer-grid{
+    display:grid; gap:2.4rem; grid-template-columns:1.4fr 1fr 1fr;
+    margin-bottom:2.4rem;
+  }
+  .footer-brand{display:flex; align-items:center; gap:.6rem; margin-bottom:.8rem;}
+  .footer-brand .brand-mark{font-family:var(--font-mark); font-weight:700; font-size:1.5rem; color:var(--peach);}
+  .footer-tagline{font-style:italic; font-family:var(--font-display); color:var(--peach); font-size:1.05rem;}
+  .footer-col h4{font-size:.85rem; text-transform:uppercase; letter-spacing:.08em; color:var(--honey); margin-bottom:.9rem;}
+  .footer-col ul{list-style:none; display:flex; flex-direction:column; gap:.6rem;}
+  .footer-col a{text-decoration:none; color:rgba(255,255,255,.82); font-size:.95rem;}
+  .footer-col a:hover{color:var(--honey);}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,.14); padding-top:1.4rem;
+    font-size:.85rem; color:rgba(255,255,255,.55);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:.6rem;
+  }
+  @media (max-width:760px){
+    .footer-grid{grid-template-columns:1fr; gap:1.8rem;}
+  }
+
+  /* ---------- Mobile sticky bar ---------- */
+  .mobile-bar{
+    display:none; position:fixed; left:0; right:0; bottom:0; z-index:60;
+    background:var(--white); border-top:1px solid rgba(43,24,16,.12);
+    padding:.65rem .9rem; gap:.7rem;
+    box-shadow:0 -8px 24px -12px rgba(43,24,16,.25);
+  }
+  .mobile-bar .btn{flex:1; padding:.7rem 1rem; font-size:.92rem;}
+  @media (max-width:680px){
+    .mobile-bar{display:flex;}
+    .site-footer{padding-bottom:6rem;}
+  }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal{opacity:0; transform:translateY(22px); transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal.in-view{opacity:1; transform:translateY(0);}
+  .hero-content{opacity:0; transform:translateY(14px); animation:hero-in .8s var(--ease) .15s forwards;}
+  @keyframes hero-in{to{opacity:1; transform:translateY(0);}}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none !important; transition:none !important;}
+    .reveal{opacity:1; transform:none;}
+    .hero-content{opacity:1; transform:none;}
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" style="position:absolute;left:-9999px;">Skip to content</a>
+
+<header class="site-header">
+  <div class="header-row">
+    <a class="brand" href="#top" aria-label="Madhukunj home">
+      <span class="hex-cluster" aria-hidden="true"><span></span><span></span><span></span></span>
+      <span class="brand-text">
+        <span class="brand-mark">मधुकुंज</span>
+        <span class="brand-sub">Sweets · Namkeen · Snacks</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav" aria-label="Primary">
+      <a href="#story">Our story</a>
+      <a href="#menu">Menu</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#visit">Visit &amp; order</a>
+    </nav>
+
+    <div class="header-cta">
+      <a class="btn btn-primary" data-call href="tel:+919000000000">Call to order</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="honeycomb-texture" aria-hidden="true"></div>
+    <div class="hero-content">
+      <span class="eyebrow">Bajna · Mathura</span>
+      <h1 class="hero-mark">मधुकुंज</h1>
+      <p class="hero-name">Madhukunj</p>
+      <p class="hero-tagline">"Delight in Every Bite"</p>
+      <p class="hero-copy">Handcrafted mithai, namkeen and home-style snacks, made fresh every day by our family for yours — right here in Bajna.</p>
+      <div class="hero-actions">
+        <a class="btn btn-light" data-call href="tel:+919000000000">Call to order</a>
+        <a class="btn btn-outline-light" href="#menu">See the menu</a>
+      </div>
+      <div class="trust-chips">
+        <span class="chip">Family recipes</span>
+        <span class="chip">Made fresh daily</span>
+        <span class="chip">Order by phone or WhatsApp</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="story reveal" id="story">
+    <div class="wrap story-grid">
+      <div class="story-text">
+        <span class="eyebrow" style="color:var(--scarlet);">Our story</span>
+        <h2>A kitchen that's stayed in the family</h2>
+        <p>Madhukunj began the way most good things in Bajna do — with a family recipe, a small kitchen, and neighbours who kept coming back for more. What started as a few trays of laddoo for festival mornings grew, slowly and honestly, into the shop you see today.</p>
+        <p>We still cook the way we did at home: fresh batches every day, real ghee and good ingredients, and the same warmth at the counter whether you're picking up a kilo of kaju katli or stopping in for a plate of pav bhaji on your way home.</p>
+      </div>
+      <div class="value-cards">
+        <div class="value-card">
+          <span class="hex-cluster" aria-hidden="true"><span></span><span></span><span></span></span>
+          <div>
+            <h3>Handcrafted, every day</h3>
+            <p>Nothing sits around — sweets and snacks are made fresh in small batches, daily.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <span class="hex-cluster" aria-hidden="true"><span></span><span></span><span></span></span>
+          <div>
+            <h3>Family recipes</h3>
+            <p>Passed down rather than picked up — the same recipes our family has always cooked.</p>
+          </div>
+        </div>
+        <div class="value-card">
+          <span class="hex-cluster" aria-hidden="true"><span></span><span></span><span></span></span>
+          <div>
+            <h3>Warm hospitality</h3>
+            <p>You're greeted like family at the counter, not just served — that's the whole point.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu reveal" id="menu">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">What we make</span>
+        <h2>From the Madhukunj kitchen</h2>
+      </div>
+      <div class="menu-grid">
+        <article class="menu-card">
+          <h3>Sweets</h3>
+          <ul class="hex-list">
+            <li><strong>Motichoor Laddoo</strong><span>Tiny gram-flour pearls, soaked in cardamom syrup.</span></li>
+            <li><strong>Kaju Katli</strong><span>Smooth cashew fudge, finished with silver leaf.</span></li>
+            <li><strong>Gulab Jamun</strong><span>Soft milk dumplings in warm rose syrup.</span></li>
+            <li><strong>Besan Barfi</strong><span>Roasted gram-flour fudge with ghee and nuts.</span></li>
+            <li><strong>Milk Cake</strong><span>Slow-cooked, grainy and rich — a family favourite.</span></li>
+            <li><strong>Soan Papdi</strong><span>Flaky, melt-in-the-mouth strands of sweetness.</span></li>
+          </ul>
+        </article>
+        <article class="menu-card">
+          <h3>Namkeen</h3>
+          <ul class="hex-list">
+            <li><strong>Bikaneri Bhujia</strong><span>Fine, crisp gram-flour noodles with a peppery kick.</span></li>
+            <li><strong>Namkeen Mixture</strong><span>Our house blend of crunchy lentils, nuts and sev.</span></li>
+            <li><strong>Aloo Bhujia</strong><span>Spiced potato sev, crisp and golden.</span></li>
+            <li><strong>Moong Dal</strong><span>Roasted and salted, lightly spiced.</span></li>
+            <li><strong>Mathri</strong><span>Flaky savoury crackers, a tea-time staple.</span></li>
+            <li><strong>Khatta Meetha</strong><span>Sweet, tangy and spiced — always moreish.</span></li>
+          </ul>
+        </article>
+        <article class="menu-card">
+          <h3>Snacks &amp; home-style</h3>
+          <ul class="hex-list">
+            <li><strong>Pav Bhaji</strong><span>Buttery mashed vegetables with soft pav, made to order.</span></li>
+            <li><strong>Samosa</strong><span>Crisp pastry, spiced potato filling.</span></li>
+            <li><strong>Kachori</strong><span>Flaky and stuffed, best eaten hot.</span></li>
+            <li><strong>Aloo Tikki</strong><span>Pan-crisped potato patties with chutney.</span></li>
+            <li><strong>Bread Pakora</strong><span>Spiced potato sandwiched and fried golden.</span></li>
+            <li><strong>Chaat</strong><span>Tangy, spiced and always made fresh to order.</span></li>
+          </ul>
+        </article>
+      </div>
+      <p class="menu-note">Prices follow the day's fresh market rate — call to order.</p>
+    </div>
+  </section>
+
+  <section class="gallery reveal" id="gallery">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">A taste, in pictures</span>
+        <h2>From our kitchen to the counter</h2>
+      </div>
+      <!--
+        To add photos: create an "images" folder next to this index.html and
+        drop in files using these exact names. Each tile will pick them up
+        automatically — no code changes needed. Until then, each hexagon
+        simply shows a warm gradient.
+          images/pav-bhaji.jpg
+          images/motichoor-laddoo.jpg
+          images/kaju-katli.jpg
+          images/samosa.jpg
+          images/namkeen.jpg
+          images/gulab-jamun.jpg
+      -->
+      <div class="hex-gallery">
+        <figure class="hex-figure">
+          <div class="hex hex-tile" style="--img:url('images/motichoor-laddoo.jpg')"></div>
+          <figcaption>Motichoor Laddoo</figcaption>
+        </figure>
+        <figure class="hex-figure">
+          <div class="hex hex-tile" style="--img:url('images/pav-bhaji.jpg')"></div>
+          <figcaption>Pav Bhaji</figcaption>
+        </figure>
+        <figure class="hex-figure">
+          <div class="hex hex-tile" style="--img:url('images/kaju-katli.jpg')"></div>
+          <figcaption>Kaju Katli</figcaption>
+        </figure>
+        <figure class="hex-figure">
+          <div class="hex hex-tile" style="--img:url('images/namkeen.jpg')"></div>
+          <figcaption>Namkeen Mixture</figcaption>
+        </figure>
+        <figure class="hex-figure">
+          <div class="hex hex-tile" style="--img:url('images/samosa.jpg')"></div>
+          <figcaption>Samosa</figcaption>
+        </figure>
+        <figure class="hex-figure">
+          <div class="hex hex-tile" style="--img:url('images/gulab-jamun.jpg')"></div>
+          <figcaption>Gulab Jamun</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit reveal" id="visit">
+    <div class="honeycomb-texture" aria-hidden="true"></div>
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Come say hello</span>
+        <h2>Visit &amp; order</h2>
+      </div>
+      <div class="visit-grid">
+        <div class="visit-card">
+          <h3>Find us</h3>
+          <div class="visit-row">
+            <div>
+              <strong>Address</strong>
+              <p data-address>Madhukunj, Bajna, Mathura, Uttar Pradesh, India</p>
+            </div>
+          </div>
+          <div class="visit-row">
+            <div>
+              <strong>Hours</strong>
+              <p data-hours>8:00 AM – 9:00 PM, all week</p>
+            </div>
+          </div>
+          <a class="maps-link" data-maps href="https://www.google.com/maps/search/?api=1&amp;query=Madhukunj+Bajna+Mathura">Get directions →</a>
+        </div>
+        <div class="visit-card">
+          <h3>Order directly</h3>
+          <p style="color:var(--brown); margin-bottom:1.4rem;">We take orders by phone and WhatsApp — no online cart needed. Tell us what you'd like and when you're coming by.</p>
+          <div class="visit-row">
+            <div>
+              <strong>Phone</strong>
+              <a data-call href="tel:+919000000000">+91 90000 00000</a>
+            </div>
+          </div>
+          <div class="visit-actions">
+            <a class="btn btn-primary" data-call href="tel:+919000000000">Call to order</a>
+            <a class="btn btn-ghost" data-whatsapp href="https://wa.me/919000000000?text=Hi%20Madhukunj%2C%20I%27d%20like%20to%20order">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <span class="hex-cluster" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span class="brand-mark">मधुकुंज</span>
+        </div>
+        <p class="footer-tagline">"Delight in Every Bite"</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick links</h4>
+        <ul>
+          <li><a href="#story">Our story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#visit">Visit &amp; order</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get in touch</h4>
+        <ul>
+          <li><a data-call href="tel:+919000000000">Call: +91 90000 00000</a></li>
+          <li><a data-whatsapp href="https://wa.me/919000000000?text=Hi%20Madhukunj%2C%20I%27d%20like%20to%20order">WhatsApp us</a></li>
+          <li><span data-hours>8:00 AM – 9:00 PM, all week</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span id="year"></span> Madhukunj, Bajna, Mathura.</span>
+      <span>Made with care, by the family.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-bar" aria-label="Quick order">
+  <a class="btn btn-primary" data-call href="tel:+919000000000">Call</a>
+  <a class="btn btn-ghost" data-whatsapp href="https://wa.me/919000000000?text=Hi%20Madhukunj%2C%20I%27d%20like%20to%20order">WhatsApp</a>
+</div>
+
+<script>
+  /* ------------------------------------------------------------------
+     EDIT ME: this is the only block you need to change to update the
+     shop's phone number, WhatsApp number, hours, and address.
+     ------------------------------------------------------------------ */
+  const CONFIG = {
+    phoneDisplay: "+91 90000 00000",
+    phoneDial: "+919000000000",          // digits with country code, no spaces
+    whatsapp: "919000000000",            // country code + number, no "+", no spaces
+    whatsappText: "Hi Madhukunj, I'd like to order",
+    hours: "8:00 AM – 9:00 PM, all week",
+    address: "Madhukunj, Bajna, Mathura, Uttar Pradesh, India",
+    mapsQuery: "Madhukunj Bajna Mathura"
+  };
+  /* ------------------------------------------------------------------ */
+
+  (function applyConfig(){
+    const waHref = "https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.whatsappText);
+    const mapsHref = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(CONFIG.mapsQuery);
+
+    document.querySelectorAll('[data-call]').forEach(function(el){
+      el.setAttribute('href', 'tel:' + CONFIG.phoneDial);
+      if (el.tagName === 'A' && el.textContent.trim().match(/^\+?\d[\d\s+]*$/)) {
+        el.textContent = CONFIG.phoneDisplay;
+      }
+    });
+
+    document.querySelectorAll('[data-whatsapp]').forEach(function(el){
+      el.setAttribute('href', waHref);
+    });
+
+    document.querySelectorAll('[data-maps]').forEach(function(el){
+      el.setAttribute('href', mapsHref);
+    });
+
+    document.querySelectorAll('[data-hours]').forEach(function(el){
+      el.textContent = CONFIG.hours;
+    });
+
+    document.querySelectorAll('[data-address]').forEach(function(el){
+      el.textContent = CONFIG.address;
+    });
+  })();
+
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const navToggle = document.getElementById('navToggle');
+  const mainNav = document.getElementById('mainNav');
+  navToggle.addEventListener('click', function(){
+    const open = mainNav.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  mainNav.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click', function(){
+      mainNav.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in-view'); });
+  }
+</script>
+</body>
+</html>
